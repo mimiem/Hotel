@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Hotel.Web.Models;
+using Hotel.Data.Hotel.Data.Models;
+using Hotel.Hotel.Data;
 
 namespace Hotel.Web
 {

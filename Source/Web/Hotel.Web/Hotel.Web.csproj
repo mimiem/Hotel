@@ -184,7 +184,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -270,6 +269,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Hotel.Data.Models\Hotel.Data.Models.csproj">
+      <Project>{fb990926-1df2-462d-ad49-1f297f748cbc}</Project>
+      <Name>Hotel.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Hotel.Data\Hotel.Data.csproj">
+      <Project>{a7291ed5-f0b1-4a06-af07-07068cfe06cf}</Project>
+      <Name>Hotel.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

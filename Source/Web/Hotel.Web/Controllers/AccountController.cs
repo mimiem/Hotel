@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Hotel.Web.Models;
+using Hotel.Data.Hotel.Data.Models;
 
 namespace Hotel.Web.Controllers
 {

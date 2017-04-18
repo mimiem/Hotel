@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Hotel.Web.Models;
+using Hotel.Hotel.Data;
+using Hotel.Data.Hotel.Data.Models;
 
 namespace Hotel.Web
 {
