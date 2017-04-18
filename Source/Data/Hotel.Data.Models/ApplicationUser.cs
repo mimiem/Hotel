@@ -6,8 +6,14 @@
     using System.Threading.Tasks;
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
-    public class ApplicationUser : IdentityUser/*, IAuditInfo, IDeletableEntity*/
+    using Common.Models;
+    public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
+        public ApplicationUser()
+        {
+            this.CreatedOn = DateTime.Now;
+
+        }
         public DateTime CreatedOn { get; set; }
 
         public DateTime? DeletedOn { get; set; }

@@ -271,6 +271,10 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\Hotel.Data.Common\Hotel.Data.Common.csproj">
+      <Project>{d9cbfd9d-6a1a-49d1-921b-d2fbc122c648}</Project>
+      <Name>Hotel.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\Hotel.Data.Models\Hotel.Data.Models.csproj">
       <Project>{fb990926-1df2-462d-ad49-1f297f748cbc}</Project>
       <Name>Hotel.Data.Models</Name>
