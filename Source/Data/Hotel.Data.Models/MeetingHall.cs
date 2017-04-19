@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hotel.Data.Models
+﻿namespace Hotel.Data.Models
 {
-    class MeetingHall
+    using Enumerations;
+    public class MeetingHall
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public HallType Type { get; set; }
+        public int Capacity { get; set; }
     }
 }

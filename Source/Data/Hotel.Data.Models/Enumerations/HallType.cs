@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hotel.Data.Models.Enumerations
+﻿namespace Hotel.Data.Models.Enumerations
 {
-    class HallType
+    public enum HallType
     {
+        Huge,
+        Big,
+        Small
     }
 }
