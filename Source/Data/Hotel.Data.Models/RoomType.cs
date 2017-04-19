@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hotel.Data.Models
+﻿namespace Hotel.Data.Models
 {
-    class RoomType
+    using System.ComponentModel.DataAnnotations;
+
+    public class RoomType
     {
+        [Key]
+        public int Id { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
+
     }
 }

@@ -9,7 +9,8 @@
         [Key]
         public int Id { get; set; }
         public int RoomNumber { get; set; }
-        public RoomType Type { get; set; }
+        public virtual RoomType RoomType{ get; set; }
+        public virtual RoomStatus RoomStatus { get; set; }
         public DateTime? DeletedOn { get; set; }
         public bool IsDeleted { get; set; }
     }

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hotel.Data.Models
+﻿namespace Hotel.Data.Models
 {
-    class RoomStatus
+    using System.ComponentModel.DataAnnotations;
+
+    public class RoomStatus
     {
+        [Key]
+        public int Id { get; set; }
+        public string Status { get; set; }
+        public string Notes { get; set; }
     }
 }
