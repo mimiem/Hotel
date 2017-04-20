@@ -7,13 +7,17 @@
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using Common.Models;
+    using global::Hotel.Data.Models;
+    using System.Collections.Generic;
+
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public ApplicationUser()
         {
             this.CreatedOn = DateTime.Now;
-
+            this.PreviousStays = new HashSet<Occupancy>();
         }
+
         public DateTime CreatedOn { get; set; }
 
         public DateTime? DeletedOn { get; set; }
@@ -23,6 +27,8 @@
         public DateTime? ModifiedOn { get; set; }
         [NotMapped]
         public bool PreserveCreatedOn { get; set; }
+
+        public virtual ICollection<Occupancy> PreviousStays{ get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

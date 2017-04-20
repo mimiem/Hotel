@@ -1,6 +1,9 @@
 namespace Hotel.Data.Migrations
 {
     using global::Hotel.Hotel.Data;
+    using Models;
+    using Models.Enumerations;
+    using System;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
@@ -15,6 +18,8 @@ namespace Hotel.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
+            //context.RoomsStatus.Add(new RoomStatus() { Status = (Status)Enum.Parse(typeof(Status), "1") });
+            //context.RoomsStatus.Add(new RoomStatus() { Status = (Status)Enum.Parse(typeof(Status), "2") });
 
         }
     }
