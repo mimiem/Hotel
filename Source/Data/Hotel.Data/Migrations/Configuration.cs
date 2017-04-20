@@ -15,6 +15,7 @@ namespace Hotel.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
+
         }
     }
 }

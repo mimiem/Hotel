@@ -8,6 +8,7 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -22,6 +23,12 @@
         }
 
         public IDbSet<Room> Rooms { get; set; }
+        public IDbSet<Image> Images { get; set; }
+        public IDbSet<MeetingHall> MeetingHalls { get; set; }
+        public IDbSet<Occupancy> Occupancy { get; set; }
+        public IDbSet<Restaurant> Restaurants { get; set; }
+        public IDbSet<RoomStatus> RoomsStatus { get; set; }
+        public IDbSet<RoomType> RoomTypes { get; set; }
 
         public override int SaveChanges()
         {

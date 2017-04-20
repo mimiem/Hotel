@@ -1,18 +1,18 @@
 ﻿namespace Hotel.Data.Models
 {
-    using Enumerations;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
-    public class MeetingHall
+    public class Restaurant
     {
-        public MeetingHall()
+        public Restaurant()
         {
             this.Images = new HashSet<Image>();
         }
+
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public HallType Type { get; set; }
-        public int Capacity { get; set; }
         public virtual ICollection<Image> Images { get; set; }
     }
 }

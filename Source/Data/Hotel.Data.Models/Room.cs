@@ -3,6 +3,7 @@
     using Common.Models;
     using System.ComponentModel.DataAnnotations;
     using System;
+    using System.Collections.Generic;
 
     public class Room : AuditInfo, IDeletableEntity
     {
