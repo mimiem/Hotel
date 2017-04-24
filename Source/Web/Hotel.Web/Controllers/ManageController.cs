@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Hotel.Web.ViewModels.Manage;
+using Hotel.Web.Hotel.Web.ViewModels.Manage;
 
 namespace Hotel.Web.Controllers
 {

@@ -1,4 +1,4 @@
-﻿namespace Hotel.Web.ViewModels.Manage
+﻿namespace Hotel.Web.Hotel.Web.ViewModels.Manage
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security;

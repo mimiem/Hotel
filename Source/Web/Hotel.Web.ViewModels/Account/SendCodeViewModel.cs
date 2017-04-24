@@ -1,4 +1,4 @@
-﻿namespace Hotel.Web.ViewModels.Account
+﻿namespace Hotel.Web.Hotel.Web.ViewModels.Account
 {
     using System.Collections.Generic;
 

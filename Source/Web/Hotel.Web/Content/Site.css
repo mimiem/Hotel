@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*h2 {
+    color:#001a4d;
+}*/
+
+#menu1 {
+    height:70px;
+    border-bottom: 5px solid #001a4d;
+}
+
+

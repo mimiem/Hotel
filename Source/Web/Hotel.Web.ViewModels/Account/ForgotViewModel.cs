@@ -1,8 +1,8 @@
-﻿namespace Hotel.Web.ViewModels.Account
+﻿namespace Hotel.Web.Hotel.Web.ViewModels.Account
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class ExternalLoginConfirmationViewModel
+    public class ForgotViewModel
     {
         [Required]
         [Display(Name = "Email")]

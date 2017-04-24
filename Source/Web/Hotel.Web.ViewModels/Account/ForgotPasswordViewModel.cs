@@ -1,10 +1,11 @@
-﻿namespace Hotel.Web.ViewModels.Account
+﻿namespace Hotel.Web.Hotel.Web.ViewModels.Account
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class ForgotViewModel
+    public class ForgotPasswordViewModel
     {
         [Required]
+        [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
