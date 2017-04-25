@@ -26,6 +26,9 @@ namespace Hotel.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.cerulean.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery.magnifier.js"/*, "~/Views/Home/script.js"*/));
         }
     }
 }
