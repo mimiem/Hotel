@@ -23,7 +23,6 @@
         }
 
         public IDbSet<Room> Rooms { get; set; }
-        public IDbSet<Image> Images { get; set; }
         public IDbSet<MeetingHall> MeetingHalls { get; set; }
         public IDbSet<Occupancy> Occupancy { get; set; }
         public IDbSet<Restaurant> Restaurants { get; set; }
