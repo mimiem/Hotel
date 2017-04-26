@@ -1,6 +1,7 @@
 ﻿namespace CameraBazaar.Data.Common.Repository
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     public interface IRepository<T> : IDisposable 
