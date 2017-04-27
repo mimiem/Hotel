@@ -15,8 +15,6 @@
         private IRepository<Picture> pictures;
         private ImagesService service;
 
-        
-
         public ImagesController(IRepository<Picture> pictures)
         {
             this.pictures = pictures;

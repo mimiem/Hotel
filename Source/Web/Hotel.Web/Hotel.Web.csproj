@@ -216,15 +216,17 @@
     <Content Include="Content\bootstrap.cerulean.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carousel.css" />
     <Content Include="Content\Images\hall1.jpg" />
     <Content Include="Content\Images\hall2.jpg" />
     <Content Include="Content\Images\hall3.jpg" />
     <Content Include="Content\Images\hotel1.jpg" />
+    <Content Include="Content\Images\hotel2.jpg" />
     <Content Include="Content\Images\piano-bar1.jpg" />
     <Content Include="Content\Images\piano-bar2.jpg" />
     <Content Include="Content\Images\restaurant1.jpg" />
     <Content Include="Content\Images\restaurant2.jpg" />
-    <Content Include="Content\Images\restaurnat3.jpg" />
+    <Content Include="Content\Images\restaurant3.jpg" />
     <Content Include="Content\Images\room1.jpg" />
     <Content Include="Content\Images\room2.jpg" />
     <Content Include="Content\Images\room3.jpg" />
@@ -293,6 +295,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Images\CategoriesImages.cshtml" />
     <Content Include="Views\Images\GalleryImages.cshtml" />
+    <Content Include="Views\Shared\_VerticalNavBarPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
