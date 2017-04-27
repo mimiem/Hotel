@@ -7,6 +7,7 @@ namespace Hotel.Data.Migrations
     using Models.Enumerations;
     using Common.HelperExtensions;
     using System.Collections.Generic;
+     
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
@@ -19,7 +20,7 @@ namespace Hotel.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            SeedImages(context);
+            //SeedImages(context);
 
         }
 

@@ -48,6 +48,10 @@
       <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -195,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -287,12 +292,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Images\CategoriesImages.cshtml" />
-    <Content Include="Views\Images\Rooms.cshtml" />
-    <Content Include="Views\Images\Restaurants.cshtml" />
-    <Content Include="Views\Images\MeetingHalls.cshtml" />
-    <Content Include="Views\Images\Bars.cshtml" />
+    <Content Include="Views\Images\GalleryImages.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -314,6 +318,10 @@
     <ProjectReference Include="..\..\Data\Hotel.Data\Hotel.Data.csproj">
       <Project>{a7291ed5-f0b1-4a06-af07-07068cfe06cf}</Project>
       <Name>Hotel.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotel.Web.Infrastructure\Hotel.Web.Infrastructure.csproj">
+      <Project>{9b18ad68-a9fb-4748-bd46-a627e817dcd9}</Project>
+      <Name>Hotel.Web.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hotel.Web.Services\Hotel.Web.Services.csproj">
       <Project>{b350016e-658d-4e1b-ba1a-011077f5a0e2}</Project>

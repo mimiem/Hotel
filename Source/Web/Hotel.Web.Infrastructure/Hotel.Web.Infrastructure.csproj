@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B350016E-658D-4E1B-BA1A-011077F5A0E2}</ProjectGuid>
+    <ProjectGuid>{9B18AD68-A9FB-4748-BD46-A627E817DCD9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hotel.Web.Services</RootNamespace>
-    <AssemblyName>Hotel.Web.Services</AssemblyName>
+    <RootNamespace>Hotel.Web.Infrastructure</RootNamespace>
+    <AssemblyName>Hotel.Web.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,16 +34,7 @@
       <HintPath>..\..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,31 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\AutoMapperConfig.cs" />
+    <Compile Include="Mapping\IHaveCustomMappings.cs" />
+    <Compile Include="Mapping\IMapFrom.cs" />
+    <Compile Include="Mapping\QueryableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ImagesService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Data\Hotel.Data.Common\Hotel.Data.Common.csproj">
-      <Project>{d9cbfd9d-6a1a-49d1-921b-d2fbc122c648}</Project>
-      <Name>Hotel.Data.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\Hotel.Data.Models\Hotel.Data.Models.csproj">
-      <Project>{fb990926-1df2-462d-ad49-1f297f748cbc}</Project>
-      <Name>Hotel.Data.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\Hotel.Data\Hotel.Data.csproj">
-      <Project>{a7291ed5-f0b1-4a06-af07-07068cfe06cf}</Project>
-      <Name>Hotel.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hotel.Web.ViewModels\Hotel.Web.ViewModels.csproj">
-      <Project>{2bfe59bf-5df6-47b1-884e-abfea8ae6116}</Project>
-      <Name>Hotel.Web.ViewModels</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

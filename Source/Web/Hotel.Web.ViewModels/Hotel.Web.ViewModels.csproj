@@ -107,6 +107,7 @@
     <Compile Include="Account\SendCodeViewModel.cs" />
     <Compile Include="Account\VerifyCodeViewModel.cs" />
     <Compile Include="Images\PictureViewModel.cs" />
+    <Compile Include="IMapping.cs" />
     <Compile Include="Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="Manage\ChangePasswordViewModel.cs" />
     <Compile Include="Manage\ConfigureTwoFactorViewModel.cs" />
@@ -120,6 +121,16 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Hotel.Data.Models\Hotel.Data.Models.csproj">
+      <Project>{fb990926-1df2-462d-ad49-1f297f748cbc}</Project>
+      <Name>Hotel.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotel.Web.Infrastructure\Hotel.Web.Infrastructure.csproj">
+      <Project>{9b18ad68-a9fb-4748-bd46-a627e817dcd9}</Project>
+      <Name>Hotel.Web.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

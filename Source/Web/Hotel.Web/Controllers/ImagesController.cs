@@ -1,18 +1,21 @@
 ﻿namespace Hotel.Web.Controllers
 {
     using CameraBazaar.Data.Common.Repository;
-    using Data.Hotel.Data.Repositories;
     using Data.Models;
-    using global::Hotel.Hotel.Data;
+    using Hotel.Web.ViewModels.Images;
     using Services;
-    using System.Collections.Generic;
     using System.Web.Mvc;
-
+    using Infrastructure.Mapping;
+    using System.Linq;
+    using Data.Models.Enumerations;
+    using System;
     [RoutePrefix("images")]
-    public class ImagesController : Controller
+    public class ImagesController : BaseController
     {
         private IRepository<Picture> pictures;
         private ImagesService service;
+
+        
 
         public ImagesController(IRepository<Picture> pictures)
         {
@@ -28,32 +31,23 @@
         }
 
         [HttpGet]
-        [Route("rooms")]
-        public ActionResult Rooms()
+        [Route("{category}")]
+        public ActionResult GalleryImages(string category)
         {
-            IEnumerable<Picture> roomPictures = pictures.All();
+            ImageCategory enumCategory = (ImageCategory)0;
+
+            if (Enum.IsDefined(typeof(ImageCategory), category))
+            {
+                enumCategory = (ImageCategory)Enum.Parse(typeof(ImageCategory), category);
+            }
+            var roomPictures = this.pictures
+                                    .All()
+                                    .Where(p => p.Category == enumCategory)
+                                    .To<PictureViewModel>()
+                                    .ToList();
+
             return View(roomPictures);
         }
 
-        [HttpGet]
-        [Route("restaurants")]
-        public ActionResult Restaurants()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [Route("meetingHalls")]
-        public ActionResult MeetingHalls()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [Route("bars")]
-        public ActionResult Bars()
-        {
-            return View();
-        }
     }
 }

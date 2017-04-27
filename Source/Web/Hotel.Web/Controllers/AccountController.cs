@@ -11,7 +11,7 @@ using Hotel.Web.Hotel.Web.ViewModels.Account;
 namespace Hotel.Web.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

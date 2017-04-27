@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Hotel.Data.Models;
-using CameraBazaar.Data.Common.Repository;
+using System.Linq;
+using Hotel.Web.Hotel.Web.ViewModels.Images;
 
 namespace Hotel.Services
 {
     public class ImagesService
     {
-        //public IEnumerable<Picture> GetRoomPictures(IRepository<Picture> pictures)
+        //public IEnumerable<PictureViewModel> GetRoomPictures(IEnumerable<Picture> pictures)
         //{
-        //    IEnumerable<Picture> roomPictures = pictures.MyWhere(pictures.All(), p => p.Category == 0);
+        //    var roomPictures = pictures.Where(p => p.Category == 0).To<PictureViewModel>().ToList();
+
         //    return roomPictures;
         //}
     }
