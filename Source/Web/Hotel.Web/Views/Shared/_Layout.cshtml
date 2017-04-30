@@ -24,7 +24,7 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Галерия", "CategoriesImages", "Images")</li>
-                            <li>@Html.ActionLink("Адрес", "", "")</li>
+                            <li>@Html.ActionLink("Адрес", "Index", "Address")</li>
                             <li>@Html.ActionLink("Резервация", "", "")</li>
                         </ul>
                         @Html.Partial("_LoginPartial")
@@ -41,9 +41,24 @@
             <p>&copy; @DateTime.Now.Year - Blue River Hotel</p>
         </footer>
     </div>
-
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script>
+      function myMap() {
+        var uluru = {lat: 42.099904, lng: 25.221451};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru,
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy13NX3EGZ_VUNr9AdMqQSplpPESoAkNY&callback=myMap"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

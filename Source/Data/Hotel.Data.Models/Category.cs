@@ -1,0 +1,14 @@
+﻿namespace Hotel.Data.Models
+{
+    using System.ComponentModel.DataAnnotations;
+
+    public class Category
+    {
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string ShortDescription { get; set; }
+        public int PictureId { get; set; }
+        public virtual Picture Picture { get; set; }
+    }
+}

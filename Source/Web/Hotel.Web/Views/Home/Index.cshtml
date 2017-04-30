@@ -1,4 +1,6 @@
-﻿<div class="row">
+﻿@using Hotel.Web.ViewModels.Images
+@model IEnumerable<CategoryPictureViewModel>
+<div class="row">
     <div class="col-md-12">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -37,51 +39,25 @@
 <hr style="border: 2px solid #073b8e" />
 
 <div class="row">
-    <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="/images/rooms">
-                <img class="img-rounded" border="0" alt="Rooms" src="~/Content/Images/room1.jpg" width="350" height="350">
-            </a>
-            <div class="caption">
-                <a href="/images/rooms">
-                    <h2>Стаи и Апартаменти</h2>
-                </a>
-                <p>
-                    Изберете си стая или апартамент с невероятна гледка към планината, докато реката тихо ромоли на една ръка разстояние.
-                </p>
-            </div>
-        </div>
-    </div>
+    @foreach (var category in Model)
+    {
+        var base64 = Convert.ToBase64String(category.Picture);
+        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 
-    <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="/images/restaurants">
-                <img class="img-rounded" border="0" alt="Restaurants" src="~/Content/Images/restaurant1.jpg" width="350" height="350">
-            </a>
-            <div class="caption">
-                <a href="/images/restaurants">
-                    <h2>Ресторанти и Барове</h2>
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <a href="/images/@category.Category">
+                    <img class="img-rounded" border="0" alt="@category.Category+s" src='@imgSrc' width="350" height="350">
                 </a>
-                <p>
-                    Оптитайте невероятно вкусни и изискани специалитети приготвени от едни от най-добрите готвачи в страната. 
-                </p>
+                <div class="caption">
+                    <a href="/images/@category.Category">
+                        <h2>@category.Name</h2>
+                    </a>
+                    <p>
+                        @category.ShortDescription
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="/images/meetingHalls">
-                <img class="img-rounded" border="0" alt="MeetingHalls" src="~/Content/Images/hall1.jpg" width="350" height="350">
-            </a>
-            <div class="caption">
-                <a href="/images/meetingHalls">
-                    <h2>Конферентна база</h2>
-                </a>
-                <p>
-                    От строго делови мероприятия през бляскави тържества до значими социални събития. Превърнете вашето събитие в истински успех!
-                </p>
-            </div>
-        </div>
-    </div>
+    }
 </div>

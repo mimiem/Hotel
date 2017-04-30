@@ -9,15 +9,20 @@
     using System.Linq;
     using Data.Models.Enumerations;
     using System;
+    using System.Collections.Generic;
+    using ViewModels.Images;
     [RoutePrefix("images")]
     public class ImagesController : BaseController
     {
         private IRepository<Picture> pictures;
+        private IRepository<Category> categories;
+
         private ImagesService service;
 
-        public ImagesController(IRepository<Picture> pictures)
+        public ImagesController(IRepository<Picture> pictures, IRepository<Category> categories)
         {
             this.pictures = pictures;
+            this.categories = categories;
             this.service = new ImagesService();
         }
 
@@ -25,26 +30,21 @@
         [Route]
         public ActionResult CategoriesImages()
         {
-            return View();
+            IEnumerable<CategoryPictureViewModel> categoriesVM = this.categories
+                                                                    .All()
+                                                                    .To<CategoryPictureViewModel>()
+                                                                    .ToList();
+
+            return View(categoriesVM);
         }
 
         [HttpGet]
         [Route("{category}")]
         public ActionResult GalleryImages(string category)
         {
-            ImageCategory enumCategory = (ImageCategory)0;
+            IEnumerable<PictureViewModel> hotelPicturesVM = this.service.GetPictures(this.pictures, category);
 
-            if (Enum.IsDefined(typeof(ImageCategory), category))
-            {
-                enumCategory = (ImageCategory)Enum.Parse(typeof(ImageCategory), category);
-            }
-            var roomPictures = this.pictures
-                                    .All()
-                                    .Where(p => p.Category == enumCategory)
-                                    .To<PictureViewModel>()
-                                    .ToList();
-
-            return View(roomPictures);
+            return View(hotelPicturesVM);
         }
 
     }

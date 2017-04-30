@@ -7,7 +7,7 @@ namespace Hotel.Data.Migrations
     using Models.Enumerations;
     using Common.HelperExtensions;
     using System.Collections.Generic;
-     
+    using System.Linq;
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
@@ -21,7 +21,48 @@ namespace Hotel.Data.Migrations
         protected override void Seed(ApplicationDbContext context)
         {
             //SeedImages(context);
+            //SeedCategories(context);
+        }
 
+        private void SeedCategories(ApplicationDbContext context)
+        {
+            Category category1 = new Category()
+            {
+                Name = "Стаи",
+                ShortDescription = "Изберете си стая или апартамент с невероятна гледка към планината, докато реката тихо ромоли на една ръка разстояние.",
+                Picture = context.Pictures.First(p => p.Category == (ImageCategory)0)
+            };
+
+            context.Categories.Add(category1);
+
+            Category category2 = new Category()
+            {
+                Name = "Ресторанти",
+                ShortDescription = "Опитайте невероятно вкусни и изискани специалитети приготвени от едни от най-добрите готвачи в страната.",
+                Picture = context.Pictures.First(p => p.Category == (ImageCategory)1)
+            };
+
+            context.Categories.Add(category2);
+
+            Category category3 = new Category()
+            {
+                Name = "Конферентна база",
+                ShortDescription = "От строго делови мероприятия през бляскави тържества до значими социални събития. Превърнете вашето събитие в истински успех!",
+                Picture = context.Pictures.First(p => p.Category == (ImageCategory)3)
+            };
+
+            context.Categories.Add(category3);
+
+            Category category4 = new Category()
+            {
+                Name = "Барове",
+                ShortDescription = "...",
+                Picture = context.Pictures.First(p => p.Category == (ImageCategory)2)
+            };
+
+            context.Categories.Add(category4);
+
+            context.SaveChanges();
         }
 
         private void SeedImages(ApplicationDbContext context)

@@ -22,6 +22,7 @@
             return new ApplicationDbContext();
         }
         public IDbSet<Picture> Pictures { get; set; }
+        public IDbSet<Category> Categories { get; set; }
         public IDbSet<Room> Rooms { get; set; }
         public IDbSet<MeetingHall> MeetingHalls { get; set; }
         public IDbSet<Occupancy> Occupancy { get; set; }

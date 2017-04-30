@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Category.cs" />
     <Compile Include="Enumerations\HallType.cs" />
     <Compile Include="Enumerations\ImageCategory.cs" />
     <Compile Include="Enumerations\Status.cs" />

@@ -1,17 +1,31 @@
-﻿using System.Collections.Generic;
-using Hotel.Data.Models;
-using System.Linq;
-using Hotel.Web.Hotel.Web.ViewModels.Images;
-
-namespace Hotel.Services
+﻿namespace Hotel.Services
 {
+    using System.Collections.Generic;
+    using Data.Models;
+    using System.Linq;
+    using Data.Models.Enumerations;
+    using System;
+    using CameraBazaar.Data.Common.Repository;
+    using Web.Hotel.Web.ViewModels.Images;
+    using Web.Infrastructure.Mapping;
+
     public class ImagesService
     {
-        //public IEnumerable<PictureViewModel> GetRoomPictures(IEnumerable<Picture> pictures)
-        //{
-        //    var roomPictures = pictures.Where(p => p.Category == 0).To<PictureViewModel>().ToList();
+        public IEnumerable<PictureViewModel> GetPictures(IRepository<Picture> pictures, string category)
+        {
+            ImageCategory enumCategory = (ImageCategory)0;
 
-        //    return roomPictures;
-        //}
+            if (Enum.IsDefined(typeof(ImageCategory), category))
+            {
+                enumCategory = (ImageCategory)Enum.Parse(typeof(ImageCategory), category);
+            }
+            IEnumerable<PictureViewModel> hotelPictures = pictures
+                                    .All()
+                                    .Where(p => p.Category == enumCategory)
+                                    .To<PictureViewModel>()
+                                    .ToList();
+
+            return hotelPictures;
+        }
     }
 }

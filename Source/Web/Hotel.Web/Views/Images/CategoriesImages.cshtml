@@ -1,59 +1,27 @@
-﻿<div class="row">
-    @Html.Partial("_VerticalNavBarPartial")
+﻿@using Hotel.Web.ViewModels.Images
+@model IEnumerable<CategoryPictureViewModel>
 
-    <div class="col-xs-3">
-        <div class="thumbnail">
-            <a href="/images/Room">
-                <img class="img-rounded" border="0" alt="Rooms" src="~/Content/Images/room1.jpg" style="width:250px; height:150px" >
-            </a>
-            <div class="caption">
-                <a href="/images/Room">
-                    <h4>Стаи</h4>
-                </a>
-            </div>
-        </div>
-    </div>
+<div class="row">
+     @Html.Partial("_VerticalNavBarPartial")
+    
+    @foreach (var category in Model)
+    {
+        var base64 = Convert.ToBase64String(category.Picture);
+        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 
-    <div class="col-xs-3">
-        <div class="thumbnail">
-            <a href="/images/Restaurant">
-                <img class="img-rounded" border="0" alt="Restaurants" src="~/Content/Images/restaurant1.jpg" style="width:250px; height:150px">
-            </a>
-            <div class="caption">
-                <a href="/images/Restaurant">
-                    <h4>Ресторанти</h4>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xs-3">
-        <div class="thumbnail">
-            <a href="/images/MeetingHall">
-                <img class="img-rounded" border="0" alt="MeetingHalls" src="~/Content/Images/hall1.jpg" style="width:250px; height:150px">
-            </a>
-            <div class="caption">
-                <a href="/images/MeetingHall">
-                    <h4>Конферентни зали</h4>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-3 col-xs-offset-3">
+        <div class="col-xs-3">
             <div class="thumbnail">
-                <a href="/images/Bar">
-                    <img class="img-rounded" border="0" alt="Bars" src="~/Content/Images/piano-bar1.jpg" style="width:250px; height:150px">
+                <a href="/images/@category.Category">
+                    <img class="img-rounded" border="0" alt="@category.Category+s" src='@imgSrc' width="350" height="350">
                 </a>
                 <div class="caption">
-                    <a href="/images/Bar">
-                        <h4>Барове</h4>
+                    <a href="/images/@category.Category">
+                        <h3>@category.Name</h3>
                     </a>
                 </div>
             </div>
         </div>
-    </div>
+    }
 </div>
 
 

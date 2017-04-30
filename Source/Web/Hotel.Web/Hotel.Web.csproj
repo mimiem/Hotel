@@ -199,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
@@ -224,6 +225,7 @@
     <Content Include="Content\Images\hotel2.jpg" />
     <Content Include="Content\Images\piano-bar1.jpg" />
     <Content Include="Content\Images\piano-bar2.jpg" />
+    <Content Include="Content\Images\reception.jpg" />
     <Content Include="Content\Images\restaurant1.jpg" />
     <Content Include="Content\Images\restaurant2.jpg" />
     <Content Include="Content\Images\restaurant3.jpg" />
@@ -285,21 +287,20 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Shared\Manage\Index.cshtml" />
+    <Content Include="Views\Shared\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Shared\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Shared\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Images\CategoriesImages.cshtml" />
     <Content Include="Views\Images\GalleryImages.cshtml" />
     <Content Include="Views\Shared\_VerticalNavBarPartial.cshtml" />
+    <Content Include="Views\Address\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Base\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

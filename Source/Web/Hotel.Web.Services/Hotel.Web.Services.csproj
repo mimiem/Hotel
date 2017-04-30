@@ -73,6 +73,10 @@
       <Project>{a7291ed5-f0b1-4a06-af07-07068cfe06cf}</Project>
       <Name>Hotel.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hotel.Web.Infrastructure\Hotel.Web.Infrastructure.csproj">
+      <Project>{9b18ad68-a9fb-4748-bd46-a627e817dcd9}</Project>
+      <Name>Hotel.Web.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hotel.Web.ViewModels\Hotel.Web.ViewModels.csproj">
       <Project>{2bfe59bf-5df6-47b1-884e-abfea8ae6116}</Project>
       <Name>Hotel.Web.ViewModels</Name>
