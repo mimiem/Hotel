@@ -12,10 +12,15 @@ namespace Hotel.Web.App_Start
     using Ninject.Web.Common;
     using System.Data.Entity;
     using global::Hotel.Hotel.Data;
-    using CameraBazaar.Data.Common.Repository;
-    using Data.Models;
     using Data.Common.Repository;
+    using Data.Models;
     using Data.Hotel.Data.Repositories;
+    using Data.Repositories.Base;
+    using Data;
+    using Infrastructure.Identity;
+    using System.Security.Principal;
+    using Data.Hotel.Data.Models;
+    using Microsoft.AspNet.Identity;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -73,6 +78,10 @@ namespace Hotel.Web.App_Start
             kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
 
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+
+            kernel.Bind<IApplicationDbContext>().To<ApplicationDbContext>().InSingletonScope();
+
+            
         }        
     }
 }

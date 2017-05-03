@@ -22,6 +22,62 @@ namespace Hotel.Data.Migrations
         {
             //SeedImages(context);
             //SeedCategories(context);
+            //SeedRoomType(context);
+            //SeedRooms(context);
+        }
+
+        private void SeedRooms(ApplicationDbContext context)
+        {
+            IEnumerable<Room> rooms = new List<Room>()
+            {
+                new Room() {RoomNumber=1,RoomType=GetRoomType(1,context)},
+                new Room() {RoomNumber=2,RoomType=GetRoomType(1,context)},
+                new Room() {RoomNumber=3,RoomType=GetRoomType(1,context)},
+                new Room() {RoomNumber=4,RoomType=GetRoomType(1,context)},
+                new Room() {RoomNumber=5,RoomType=GetRoomType(1,context)},
+                new Room() {RoomNumber=6,RoomType=GetRoomType(2,context)},
+                new Room() {RoomNumber=7,RoomType=GetRoomType(2,context)},
+                new Room() {RoomNumber=8,RoomType=GetRoomType(2,context)},
+                new Room() {RoomNumber=9,RoomType=GetRoomType(2,context)},
+                new Room() {RoomNumber=10,RoomType=GetRoomType(2,context)},
+                new Room() {RoomNumber=11,RoomType=GetRoomType(3,context)},
+                new Room() {RoomNumber=12,RoomType=GetRoomType(3,context)},
+                new Room() {RoomNumber=13,RoomType=GetRoomType(3,context)},
+                new Room() {RoomNumber=14,RoomType=GetRoomType(4,context)},
+                new Room() {RoomNumber=15,RoomType=GetRoomType(4,context)}
+
+            };
+
+            foreach (var room in rooms)
+            {
+                context.Rooms.Add(room);
+            }
+
+            context.SaveChanges();
+
+        }
+
+        private RoomType GetRoomType(int typeId, ApplicationDbContext context)
+        {
+            return context.RoomTypes.First(t => t.Id == typeId);
+        }
+
+        private void SeedRoomType(ApplicationDbContext context)
+        {
+            IEnumerable<RoomType> types = new List<RoomType>()
+            {
+                new RoomType() {Type="Двойна стая" },
+                new RoomType() {Type="Двойна стая Deluxe" },
+                new RoomType() {Type="Апартамент" },
+                new RoomType() {Type="Апартамент фамилен" }
+            };
+
+            foreach (var type in types)
+            {
+                context.RoomTypes.Add(type);
+            }
+
+            context.SaveChanges();
         }
 
         private void SeedCategories(ApplicationDbContext context)
@@ -111,12 +167,26 @@ namespace Hotel.Data.Migrations
                 pictures.Add(newPicture);
             }
 
-            Picture picture = new Picture
+            Picture hotelPicture1 = new Picture
             {
                 Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
                 Image = ImageConverter.ImageToByteArray(path + "hotel1.jpg")
             };
-            pictures.Add(picture);
+            pictures.Add(hotelPicture1);
+
+            Picture hotelPicture2 = new Picture
+            {
+                Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
+                Image = ImageConverter.ImageToByteArray(path + "hotel1.jpg")
+            };
+            pictures.Add(hotelPicture2);
+
+            Picture reception = new Picture
+            {
+                Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
+                Image = ImageConverter.ImageToByteArray(path + "hotel1.jpg")
+            };
+            pictures.Add(reception);
 
             pictures.ForEach(s => context.Pictures.AddOrUpdate(p => p.Id, s));
         }

@@ -5,10 +5,9 @@
     using System.Linq;
     using Data.Models.Enumerations;
     using System;
-    using CameraBazaar.Data.Common.Repository;
     using Web.Hotel.Web.ViewModels.Images;
     using Web.Infrastructure.Mapping;
-
+    using Data.Common.Repository;
     public class ImagesService
     {
         public IEnumerable<PictureViewModel> GetPictures(IRepository<Picture> pictures, string category)

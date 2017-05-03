@@ -5,6 +5,7 @@
 
     public class PictureViewModel : IMapFrom<Picture>
     {
+        public int Id { get; set; }
         public byte[] Image { get; set; }
     }
 }

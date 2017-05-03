@@ -6,12 +6,9 @@
 
     @foreach (var picture in Model)
     {
-        var base64 = Convert.ToBase64String(picture.Image);
-        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-
         <div class="col-xs-3">
             <div class="thumbnail">
-                <img class="magnify" data-magnifyby="2.5" border="0" src='@imgSrc' width="350" height="350">
+                <img class="magnify" data-magnifyby="2.5" border="0" src="@Url.Action("GetImage", "Images", new { id= picture.Id })" width="350" height="350">
             </div>
         </div>
     }

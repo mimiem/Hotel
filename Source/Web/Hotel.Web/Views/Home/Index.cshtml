@@ -41,20 +41,18 @@
 <div class="row">
     @foreach (var category in Model)
     {
-        var base64 = Convert.ToBase64String(category.Picture);
-        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-
+        
         <div class="col-md-4">
             <div class="thumbnail">
-                <a href="/images/@category.Category">
-                    <img class="img-rounded" border="0" alt="@category.Category+s" src='@imgSrc' width="350" height="350">
+                <a href="/images/@Html.DisplayFor(modelItem => category.Category)">
+                    <img class="img-rounded" border="0" alt="@Html.DisplayFor(modelItem => category.Category)+s" src='@Url.Action("GetImage", "Images", new { id= category.PictureId })' width="350" height="350">
                 </a>
                 <div class="caption">
-                    <a href="/images/@category.Category">
-                        <h2>@category.Name</h2>
+                    <a href="/images/@Html.DisplayFor(modelItem => category.Category)">
+                        <h2>@Html.DisplayFor(modelItem => category.Name)</h2>
                     </a>
                     <p>
-                        @category.ShortDescription
+                        @Html.DisplayFor(modelItem => category.ShortDescription)
                     </p>
                 </div>
             </div>

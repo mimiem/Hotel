@@ -1,6 +1,5 @@
 ﻿namespace Hotel.Data.Common.Repository
 {
-    using CameraBazaar.Data.Common.Repository;
     using System.Linq;
 
     public interface IDeletableEntityRepository<T> : IRepository<T>

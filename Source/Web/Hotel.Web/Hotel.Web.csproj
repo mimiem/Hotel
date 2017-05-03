@@ -204,6 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +212,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.cerulean.css" />
@@ -245,6 +247,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -287,18 +290,22 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Shared\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Shared\Manage\Index.cshtml" />
-    <Content Include="Views\Shared\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Shared\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Shared\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Images\CategoriesImages.cshtml" />
     <Content Include="Views\Images\GalleryImages.cshtml" />
     <Content Include="Views\Shared\_VerticalNavBarPartial.cshtml" />
     <Content Include="Views\Address\Index.cshtml" />
+    <Content Include="Views\Reservation\Add.cshtml" />
+    <Content Include="Views\Reservation\Reserved.cshtml" />
+    <Content Include="Views\Reservation\NotAvailable.cshtml" />
+    <Content Include="Views\Reservation\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

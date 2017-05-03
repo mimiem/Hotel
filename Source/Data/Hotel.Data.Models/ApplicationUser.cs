@@ -15,8 +15,11 @@
         public ApplicationUser()
         {
             this.CreatedOn = DateTime.Now;
-            this.PreviousStays = new HashSet<Occupancy>();
+            this.PreviousStays = new HashSet<Reservation>();
         }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -28,7 +31,7 @@
         [NotMapped]
         public bool PreserveCreatedOn { get; set; }
 
-        public virtual ICollection<Occupancy> PreviousStays{ get; set; }
+        public virtual ICollection<Reservation> PreviousStays{ get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

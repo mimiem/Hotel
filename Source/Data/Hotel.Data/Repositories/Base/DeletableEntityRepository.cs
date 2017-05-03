@@ -1,7 +1,8 @@
-﻿namespace Hotel.Data.Hotel.Data.Repositories
+﻿namespace Hotel.Data.Repositories.Base
 {
     using Common.Models;
     using Common.Repository;
+    using Hotel.Data.Repositories;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -10,7 +11,7 @@
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity, new()
     {
-        public DeletableEntityRepository(DbContext context)
+        public DeletableEntityRepository(IApplicationDbContext context)
             : base(context)
         {
         }

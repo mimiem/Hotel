@@ -50,7 +50,7 @@ namespace Hotel.Web
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                //TODO return to false after
+                //TODO return to true after
                 RequiredLength = 6,
                 RequireNonLetterOrDigit = false,
                 RequireDigit = false,

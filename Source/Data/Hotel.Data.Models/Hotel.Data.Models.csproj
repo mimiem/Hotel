@@ -61,14 +61,12 @@
     <Compile Include="Category.cs" />
     <Compile Include="Enumerations\HallType.cs" />
     <Compile Include="Enumerations\ImageCategory.cs" />
-    <Compile Include="Enumerations\Status.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="MeetingHall.cs" />
-    <Compile Include="Occupancy.cs" />
+    <Compile Include="Reservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restaurant.cs" />
     <Compile Include="Room.cs" />
-    <Compile Include="RoomStatus.cs" />
     <Compile Include="RoomType.cs" />
   </ItemGroup>
   <ItemGroup>

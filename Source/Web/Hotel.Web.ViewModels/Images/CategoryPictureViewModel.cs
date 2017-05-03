@@ -8,13 +8,13 @@
     {
         public string Name { get; set; }
         public string ShortDescription { get; set; }
-        public byte[] Picture { get; set; }
+        public int PictureId { get; set; }
         public string Category { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Category, CategoryPictureViewModel>()
-                .ForMember(expr => expr.Picture, opts => opts.MapFrom(p => p.Picture.Image))
+                .ForMember(expr => expr.PictureId, opts => opts.MapFrom(p => p.Picture.Id))
                 .ForMember(expr => expr.Category, opts => opts.MapFrom(p => p.Picture.Category.ToString()));
         }
     }

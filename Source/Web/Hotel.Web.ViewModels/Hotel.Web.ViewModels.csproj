@@ -122,6 +122,8 @@
     <Compile Include="Manage\SetPasswordViewModel.cs" />
     <Compile Include="Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation\CheckReservationViewModel.cs" />
+    <Compile Include="Reservation\RoomViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

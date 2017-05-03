@@ -1,6 +1,6 @@
 ﻿namespace Hotel.Web.Controllers
 {
-    using CameraBazaar.Data.Common.Repository;
+    using Data.Common.Repository;
     using Data.Models;
     using Hotel.Web.ViewModels.Images;
     using Services;
@@ -11,6 +11,9 @@
     using System;
     using System.Collections.Generic;
     using ViewModels.Images;
+    using System.IO;
+    using global::Hotel.Services;
+
     [RoutePrefix("images")]
     public class ImagesController : BaseController
     {
@@ -27,7 +30,6 @@
         }
 
         [HttpGet]
-        [Route]
         public ActionResult CategoriesImages()
         {
             IEnumerable<CategoryPictureViewModel> categoriesVM = this.categories
@@ -45,6 +47,14 @@
             IEnumerable<PictureViewModel> hotelPicturesVM = this.service.GetPictures(this.pictures, category);
 
             return View(hotelPicturesVM);
+        }
+
+        [HttpGet]
+        public ActionResult GetImage(int id)
+        {
+            Picture picture = this.pictures.GetById(id);
+
+            return new FileContentResult(picture.Image, "img/ file type");
         }
 
     }

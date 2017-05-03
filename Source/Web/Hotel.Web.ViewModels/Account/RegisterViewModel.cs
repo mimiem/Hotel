@@ -10,10 +10,17 @@
         public string Email { get; set; }
 
         [Required]
-        [StringLength(20, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
-        [Display(Name = "User Name")]
-        public string UserName { get; set; }
+        [DataType(DataType.Text)]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
         [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
 
         [Required]

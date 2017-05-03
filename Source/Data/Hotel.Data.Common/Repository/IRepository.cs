@@ -1,4 +1,4 @@
-﻿namespace CameraBazaar.Data.Common.Repository
+﻿namespace Hotel.Data.Common.Repository
 {
     using System;
     using System.Collections.Generic;

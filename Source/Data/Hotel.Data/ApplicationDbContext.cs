@@ -1,5 +1,6 @@
 ﻿namespace Hotel.Hotel.Data
 {
+    using global::Hotel.Data;
     using global::Hotel.Data.Common.Models;
     using global::Hotel.Data.Hotel.Data.Models;
     using global::Hotel.Data.Migrations;
@@ -9,7 +10,7 @@
     using System.Data.Entity;
     using System.Linq;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -25,9 +26,8 @@
         public IDbSet<Category> Categories { get; set; }
         public IDbSet<Room> Rooms { get; set; }
         public IDbSet<MeetingHall> MeetingHalls { get; set; }
-        public IDbSet<Occupancy> Occupancy { get; set; }
+        public IDbSet<Reservation> Reservations { get; set; }
         public IDbSet<Restaurant> Restaurants { get; set; }
-        public IDbSet<RoomStatus> RoomsStatus { get; set; }
         public IDbSet<RoomType> RoomTypes { get; set; }
 
         public override int SaveChanges()
@@ -60,6 +60,20 @@
                 }
             }
         }
+
+        IDbSet<T> IApplicationDbContext.Set<T>()
+        {
+            return base.Set<T>();
+        }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    //one-to-many 
+        //    modelBuilder.Entity<Reservation>()
+        //                .HasRequired<Room>(s => s.Room) // Student entity requires Standard 
+        //                .WithMany(s => s.Reservations); // Standard entity includes many Students entities
+
+        //}
 
     }
 }

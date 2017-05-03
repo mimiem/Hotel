@@ -1,0 +1,12 @@
+﻿@using Hotel.Web.ViewModels.Reservation
+@model CheckReservationViewModel
+
+<h2>NotAvailable</h2>
+
+<div class="row">
+    <p>
+        Няма свободна стая за дадения период от @Model.StartDate - @Model.EndDate
+    </p>
+
+    @Html.ActionLink("Back", "Add", "Reservation")
+</div>

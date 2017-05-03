@@ -1,0 +1,49 @@
+﻿@using Hotel.Web.ViewModels.Reservation
+@model CheckReservationViewModel
+
+<div class="row">
+    <div class="col-md-8" id= "sandbox-container">
+        @using (Html.BeginForm("Add", "Reservation", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <h4>Справка</h4>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10" >
+                    @Html.TextBoxFor(m => m.StartDate, new { type="date" })
+                    @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.EndDate, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.EndDate, new { type = "date" })
+                    @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RoomType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(
+                    m=>m.RoomType,
+                    Model.RoomTypes,
+                    "Избери...",
+                    new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Прати" />
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+

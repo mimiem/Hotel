@@ -6,10 +6,8 @@ using System.Web.Mvc;
 
 namespace Hotel.Web.Controllers
 {
-    [RoutePrefix("address")]
     public class AddressController : BaseController
     {
-        [Route]
         public ActionResult Index()
         {
             return View();

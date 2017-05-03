@@ -25,7 +25,7 @@
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Галерия", "CategoriesImages", "Images")</li>
                             <li>@Html.ActionLink("Адрес", "Index", "Address")</li>
-                            <li>@Html.ActionLink("Резервация", "", "")</li>
+                            <li>@Html.ActionLink("Резервация", "Add", "Reservation")</li>
                         </ul>
                         @Html.Partial("_LoginPartial")
                     </div>
@@ -58,7 +58,21 @@
         });
       }
     </script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy13NX3EGZ_VUNr9AdMqQSplpPESoAkNY&callback=myMap"></script>
+
+    <script>
+      $('#sandbox-container .input-daterange').datepicker({
+         startDate: "-12/30/2014",
+         endDate: "+01/15/2015",
+         startView: 1,
+         clearBtn: true,
+         calendarWeeks: true,
+         autoclose: true,
+         todayHighlight: true
+       });
+    </script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

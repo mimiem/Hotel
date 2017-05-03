@@ -1,6 +1,6 @@
 ﻿namespace Hotel.Web.Controllers
 {
-    using CameraBazaar.Data.Common.Repository;
+    using Data.Common.Repository;
     using Data.Models;
     using Infrastructure.Mapping;
     using System.Collections.Generic;
