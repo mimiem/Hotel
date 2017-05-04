@@ -24,6 +24,51 @@ namespace Hotel.Data.Migrations
             //SeedCategories(context);
             //SeedRoomType(context);
             //SeedRooms(context);
+            SeedEntertainments(context);
+        }
+
+        private void SeedEntertainments(ApplicationDbContext context)
+        {
+            Entertainment e1 = new Entertainment()
+            {
+                Name = "Ресторанти",
+                Description = "Основният ресторант с капацитет от 160 места предлага в приятна и непринудена атмосфера богата селекция от традиционна българска и разнообразна европейска кухня. " +
+                "Нашето елегантно лоби е идеално място за среща с приятели или бизнес партньори,на чаша ароматно кафе, " +
+                "марково питие или екзотичен коктейл.Разполагаме и с китайски ресторант \"Червеният дракон\"." +
+                "Хотелът разполага и с бар - мецанин както и с бар - тераса за летните месеци." +
+                "За най - малките гости на хотела предлагаме услугите на детска занималня с много играчки и забавни игри.",
+                Pictures = context.Pictures.Where(p=>p.Category == (ImageCategory)1).ToList()
+            };
+
+            Entertainment e2 = new Entertainment()
+            {
+                Name = "СПА център",
+                Description = "Спа център Виго е прекрасна възможност да се погрижите за здравето и добрата си форма в приятна атмосфера. Той разполага със закрит отопляем плувен басейн, " + 
+                "зала за релаксация, джакузи, сауна, солариум, стая с аромати, разнообразие от терапии и масажи. " +
+                "Екстри: класически масаж, аромотерапия, лечебен масаж, антистресов масаж, маска и масаж на лице, антицелулитни процедури и др. " +
+                "Любителите на спорта, могат да тренират в богато оборудваната фитнес зала и да използват услугите на професионален фитнес инструктор. "+
+                "Поглезете се, позволете си подмладяване на тялото, ума и духа с ароматни масла, нежна музика и грижовни ръце.Наслада и спокойствие за сетивата ви. " +
+                "Халати се дават на рецепция след поискване и депозит.",
+                Pictures = context.Pictures.Where(p => p.Name.ToLower().Contains("pool")).ToList()
+            };
+
+            Entertainment e3 = new Entertainment()
+            {
+                Name = "Барове",
+                Description = "",
+                Pictures = context.Pictures.Where(p => p.Category == (ImageCategory)2).ToList()
+            };
+
+            Entertainment e4 = new Entertainment()
+            {
+                Name = "Конферентни зали",
+                Description = "Конферентният блок на хотел \"Blue River\" се състои от две зали, предлагащи перфектни условия за провеждане на семинари, делови срещи, конференции, " + 
+                "фирмено обучение и коктейли. Зала с 120 места и VIP-зала с 20 места, подходяща и за частни срещи. " +
+                "На своите бизнес гости хотел \"Blue River\" предлага конферентни зали с най - съвременно оборудване, "+
+                "възможности за мултимедийни презентации, " + 
+                "напълно професионално озвучаване с непрекъснато техническо присъствие и др.",
+                Pictures = context.Pictures.Where(p => p.Category == (ImageCategory)3).ToList()
+            };
         }
 
         private void SeedRooms(ApplicationDbContext context)
@@ -82,7 +127,7 @@ namespace Hotel.Data.Migrations
 
         private void SeedCategories(ApplicationDbContext context)
         {
-            Category category1 = new Category()
+            CategoryPictures category1 = new CategoryPictures()
             {
                 Name = "Стаи",
                 ShortDescription = "Изберете си стая или апартамент с невероятна гледка към планината, докато реката тихо ромоли на една ръка разстояние.",
@@ -91,7 +136,7 @@ namespace Hotel.Data.Migrations
 
             context.Categories.Add(category1);
 
-            Category category2 = new Category()
+            CategoryPictures category2 = new CategoryPictures()
             {
                 Name = "Ресторанти",
                 ShortDescription = "Опитайте невероятно вкусни и изискани специалитети приготвени от едни от най-добрите готвачи в страната.",
@@ -100,7 +145,7 @@ namespace Hotel.Data.Migrations
 
             context.Categories.Add(category2);
 
-            Category category3 = new Category()
+            CategoryPictures category3 = new CategoryPictures()
             {
                 Name = "Конферентна база",
                 ShortDescription = "От строго делови мероприятия през бляскави тържества до значими социални събития. Превърнете вашето събитие в истински успех!",
@@ -109,7 +154,7 @@ namespace Hotel.Data.Migrations
 
             context.Categories.Add(category3);
 
-            Category category4 = new Category()
+            CategoryPictures category4 = new CategoryPictures()
             {
                 Name = "Барове",
                 ShortDescription = "...",
@@ -132,7 +177,8 @@ namespace Hotel.Data.Migrations
                 Picture newPicture = new Picture
                 {
                     Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "0"),
-                    Image = ImageConverter.ImageToByteArray(path + "room"+i+".jpg")
+                    Image = ImageConverter.ImageToByteArray(path + "room"+i+".jpg"),
+                    Name="room" + i
                 };
                 pictures.Add(newPicture);
             }
@@ -142,7 +188,8 @@ namespace Hotel.Data.Migrations
                 Picture newPicture = new Picture
                 {
                     Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "1"),
-                    Image = ImageConverter.ImageToByteArray(path + "restaurant" + i + ".jpg")
+                    Image = ImageConverter.ImageToByteArray(path + "restaurant" + i + ".jpg"),
+                    Name = "restaurant" + i
                 };
                 pictures.Add(newPicture);
             }
@@ -152,7 +199,8 @@ namespace Hotel.Data.Migrations
                 Picture newPicture = new Picture
                 {
                     Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "3"),
-                    Image = ImageConverter.ImageToByteArray(path + "hall" + i + ".jpg")
+                    Image = ImageConverter.ImageToByteArray(path + "hall" + i + ".jpg"),
+                    Name="hall"+i
                 };
                 pictures.Add(newPicture);
             }
@@ -162,7 +210,8 @@ namespace Hotel.Data.Migrations
                 Picture newPicture = new Picture
                 {
                     Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "2"),
-                    Image = ImageConverter.ImageToByteArray(path + "piano-bar" + i + ".jpg")
+                    Image = ImageConverter.ImageToByteArray(path + "piano-bar" + i + ".jpg"),
+                    Name= "bar"+i
                 };
                 pictures.Add(newPicture);
             }
@@ -170,23 +219,28 @@ namespace Hotel.Data.Migrations
             Picture hotelPicture1 = new Picture
             {
                 Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
-                Image = ImageConverter.ImageToByteArray(path + "hotel1.jpg")
+                Image = ImageConverter.ImageToByteArray(path + "hotel1.jpg"),
+                Name="hotel1"
             };
             pictures.Add(hotelPicture1);
 
             Picture hotelPicture2 = new Picture
             {
                 Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
-                Image = ImageConverter.ImageToByteArray(path + "hotel1.jpg")
+                Image = ImageConverter.ImageToByteArray(path + "hotel2.jpg"),
+                Name="poolOnRoof"
             };
             pictures.Add(hotelPicture2);
 
             Picture reception = new Picture
             {
                 Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
-                Image = ImageConverter.ImageToByteArray(path + "hotel1.jpg")
+                Image = ImageConverter.ImageToByteArray(path + "reception.jpg"),
+                Name="reception"
             };
             pictures.Add(reception);
+
+
 
             pictures.ForEach(s => context.Pictures.AddOrUpdate(p => p.Id, s));
         }

@@ -81,19 +81,20 @@
         [HttpGet]
         public ActionResult Confirm()
         {
-            bool isConfirmed = false;
 
-            return View(isConfirmed);
+            return View();
         }
+
+        
 
         [HttpGet]
         //[Route("confirm/reserved")]
-        public ActionResult Reserved() //TODO The resource cannot be found.
+        public ActionResult Reserved(bool isConfirmed) //TODO The resource cannot be found.
         {
-            this.reservations.SaveChanges();
 
             //var modelVM = Session["CheckReservationViewModel"] as CheckReservationViewModel;
 
+            this.reservations.SaveChanges();
 
             //return this.RedirectToAction("Add", modelVM);
             return View();

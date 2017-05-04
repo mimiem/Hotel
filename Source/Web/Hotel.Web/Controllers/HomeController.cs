@@ -10,9 +10,9 @@
 
     public class HomeController : BaseController
     {
-        private IRepository<Category> categories;
+        private IRepository<CategoryPictures> categories;
 
-        public HomeController(IRepository<Category> categories)
+        public HomeController(IRepository<CategoryPictures> categories)
         {
             this.categories = categories;
         }

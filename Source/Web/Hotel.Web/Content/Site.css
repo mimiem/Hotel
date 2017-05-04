@@ -59,6 +59,8 @@ textarea {
     font-size:20px;
 }
 
+.open .dropdown-menu{display:block;}
+
 /*.item span1 {
     font-size: large;
     line-height: 150px;

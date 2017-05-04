@@ -23,12 +23,12 @@
             return new ApplicationDbContext();
         }
         public IDbSet<Picture> Pictures { get; set; }
-        public IDbSet<Category> Categories { get; set; }
+        public IDbSet<CategoryPictures> Categories { get; set; }
         public IDbSet<Room> Rooms { get; set; }
-        public IDbSet<MeetingHall> MeetingHalls { get; set; }
         public IDbSet<Reservation> Reservations { get; set; }
-        public IDbSet<Restaurant> Restaurants { get; set; }
         public IDbSet<RoomType> RoomTypes { get; set; }
+        public IDbSet<Entertainment> Entertainments { get; set; }
+
 
         public override int SaveChanges()
         {

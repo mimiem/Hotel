@@ -18,11 +18,11 @@
     public class ImagesController : BaseController
     {
         private IRepository<Picture> pictures;
-        private IRepository<Category> categories;
+        private IRepository<CategoryPictures> categories;
 
         private ImagesService service;
 
-        public ImagesController(IRepository<Picture> pictures, IRepository<Category> categories)
+        public ImagesController(IRepository<Picture> pictures, IRepository<CategoryPictures> categories)
         {
             this.pictures = pictures;
             this.categories = categories;

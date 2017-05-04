@@ -1,0 +1,21 @@
+﻿@using Hotel.Web.ViewModels.Entertainment
+@model EntertainmentViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <h3>@Html.DisplayNameFor(model => model.Name)</h3>
+            <p>
+                @Html.DisplayFor(model => model.Description)
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+

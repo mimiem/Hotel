@@ -1,6 +1,6 @@
 ﻿namespace Hotel.Data
 {
-    using Data.Models;
+    using Models;
     using Hotel.Data.Models;
     using System;
     using System.Data.Entity;
@@ -9,13 +9,12 @@
     public interface IApplicationDbContext : IDisposable
     {
         IDbSet<Picture> Pictures { get; set; }
-        IDbSet<Category> Categories { get; set; }
+        IDbSet<CategoryPictures> Categories { get; set; }
         IDbSet<Room> Rooms { get; set; }
-        IDbSet<MeetingHall> MeetingHalls { get; set; }
         IDbSet<Reservation> Reservations { get; set; }
-        IDbSet<Restaurant> Restaurants { get; set; }
         IDbSet<RoomType> RoomTypes { get; set; }
         IDbSet<ApplicationUser> Users { get; set; }
+        IDbSet<Entertainment> Entertainments { get; set; }
 
 
         int SaveChanges();

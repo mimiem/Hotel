@@ -110,6 +110,7 @@
     <Compile Include="Account\ResetPasswordViewModel.cs" />
     <Compile Include="Account\SendCodeViewModel.cs" />
     <Compile Include="Account\VerifyCodeViewModel.cs" />
+    <Compile Include="Entertainment\EntertainmentViewModel.cs" />
     <Compile Include="Images\CategoryPictureViewModel.cs" />
     <Compile Include="Images\PictureViewModel.cs" />
     <Compile Include="IMapping.cs" />

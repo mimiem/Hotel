@@ -31,10 +31,10 @@ namespace Hotel.Web
                 url: "reservetion/confirm",
                 defaults: new { controller = "Reservation", action = "Confirm" });
 
-            //routes.MapRoute(
-            //    name: "Reserved",
-            //    url: "reservetion/confirm/reserved",
-            //    defaults: new { controller = "Reservation", action = "Reserved" });
+            routes.MapRoute(
+                name: "Reserved",
+                url: "reservetion/reserved",
+                defaults: new { controller = "Reservation", action = "Reserved" });
 
             routes.MapRoute(
                 name: "Default",
