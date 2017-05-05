@@ -10,9 +10,13 @@
     public class EntertainmentController : BaseController
     {
         private IRepository<Entertainment> entertainments;
-        public EntertainmentController(IRepository<Entertainment> entertainments)
+        private IRepository<Picture> pictures;
+
+        public EntertainmentController(IRepository<Entertainment> entertainments,
+            IRepository<Picture> pictures)
         {
             this.entertainments = entertainments;
+            this.pictures = pictures;
         }
 
         // GET: Entertainment
@@ -22,6 +26,14 @@
             EntertainmentViewModel currentVM = this.Mapper.Map<EntertainmentViewModel>(current);
             return View(currentVM);
         }
-        
+
+        [HttpGet]
+        public ActionResult GetImage(int id)
+        {
+            Picture picture = this.pictures.GetById(id);
+
+            return new FileContentResult(picture.Image, "img/ file type");
+        }
+
     }
 }

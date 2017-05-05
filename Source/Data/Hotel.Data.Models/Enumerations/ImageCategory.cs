@@ -6,6 +6,7 @@
         Restaurant,
         Bar,
         MeetingHall,
-        General
+        General,
+        SPA
     }
 }

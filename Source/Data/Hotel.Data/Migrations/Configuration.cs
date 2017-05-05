@@ -20,11 +20,11 @@ namespace Hotel.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            //SeedImages(context);
+            //SeedImages(context); 
             //SeedCategories(context);
             //SeedRoomType(context);
             //SeedRooms(context);
-            SeedEntertainments(context);
+            //SeedEntertainments(context);   
         }
 
         private void SeedEntertainments(ApplicationDbContext context)
@@ -37,38 +37,53 @@ namespace Hotel.Data.Migrations
                 "марково питие или екзотичен коктейл.Разполагаме и с китайски ресторант \"Червеният дракон\"." +
                 "Хотелът разполага и с бар - мецанин както и с бар - тераса за летните месеци." +
                 "За най - малките гости на хотела предлагаме услугите на детска занималня с много играчки и забавни игри.",
+                Facilities = "Ресторант – 160 места Лоби бар – 40 места|Пицария \"Верди\"|Детска занималня|Български специалитети|Европейска кухня",
+                
                 Pictures = context.Pictures.Where(p=>p.Category == (ImageCategory)1).ToList()
             };
+
+            context.Entertainments.AddOrUpdate(e1);
 
             Entertainment e2 = new Entertainment()
             {
                 Name = "СПА център",
-                Description = "Спа център Виго е прекрасна възможност да се погрижите за здравето и добрата си форма в приятна атмосфера. Той разполага със закрит отопляем плувен басейн, " + 
+                Description = "Спа центърa е прекрасна възможност да се погрижите за здравето и добрата си форма в приятна атмосфера. Той разполага със закрит отопляем плувен басейн, " +
                 "зала за релаксация, джакузи, сауна, солариум, стая с аромати, разнообразие от терапии и масажи. " +
                 "Екстри: класически масаж, аромотерапия, лечебен масаж, антистресов масаж, маска и масаж на лице, антицелулитни процедури и др. " +
-                "Любителите на спорта, могат да тренират в богато оборудваната фитнес зала и да използват услугите на професионален фитнес инструктор. "+
+                "Любителите на спорта, могат да тренират в богато оборудваната фитнес зала и да използват услугите на професионален фитнес инструктор. " +
                 "Поглезете се, позволете си подмладяване на тялото, ума и духа с ароматни масла, нежна музика и грижовни ръце.Наслада и спокойствие за сетивата ви. " +
                 "Халати се дават на рецепция след поискване и депозит.",
-                Pictures = context.Pictures.Where(p => p.Name.ToLower().Contains("pool")).ToList()
+                Facilities = "ПЛУВЕН БАСЕЙН|ФИТНЕС ЗАЛА|ДЖАКУЗИ|САУНА|СОЛАРИУМ|СТАЯ С АРОМАТИ|ЗАЛА ЗА РЕЛАКСАЦИЯ|МАСАЖ|АРОМОТЕРАПИЯ|АНТИЦЕЛУЛИТНИ ПРОЦЕДУРИ",
+                Pictures = context.Pictures.Where(p => p.Category == (ImageCategory)5).ToList()
             };
+
+            context.Entertainments.AddOrUpdate(e2);
 
             Entertainment e3 = new Entertainment()
             {
                 Name = "Барове",
-                Description = "",
+                Description = "Заповядайте в пиано-бара. Тук ще намерите подбрано разнообразие от алкохолни и безалкохолни питиета, коктейли, пури – за ценители! " +
+                "Със силектирана музика, нашите музиканти и млад персонал, ще се погрижат за Вашето безупречно обслужване и добро настоение! ",
+                Facilities="Бар - мецанин|Бар - тераса|Коктейли|Класически напитки|Игрална на зала|Билярд|Електронни игри",
                 Pictures = context.Pictures.Where(p => p.Category == (ImageCategory)2).ToList()
             };
+            context.Entertainments.Add(e3);
 
             Entertainment e4 = new Entertainment()
             {
                 Name = "Конферентни зали",
-                Description = "Конферентният блок на хотел \"Blue River\" се състои от две зали, предлагащи перфектни условия за провеждане на семинари, делови срещи, конференции, " + 
+                Description = "Конферентният блок на хотел \"Blue River\" се състои от две зали, предлагащи перфектни условия за провеждане на семинари, делови срещи, конференции, " +
                 "фирмено обучение и коктейли. Зала с 120 места и VIP-зала с 20 места, подходяща и за частни срещи. " +
-                "На своите бизнес гости хотел \"Blue River\" предлага конферентни зали с най - съвременно оборудване, "+
-                "възможности за мултимедийни презентации, " + 
+                "На своите бизнес гости хотел \"Blue River\" предлага конферентни зали с най - съвременно оборудване, " +
+                "възможности за мултимедийни презентации, " +
                 "напълно професионално озвучаване с непрекъснато техническо присъствие и др.",
+                Facilities="ЗАЛА С 120 МЕСТА|VIP-ЗАЛА С 20 МЕСТА|ПРОФЕСИОНАЛНО ОЗВУЧАВАНЕ|МУЛТИМЕДИЙНИ ПРЕЗЕНТАЦИИ|ТЕХНИЧЕСКО ПРИСЪСТВИЕ|БЕЗЖИЧЕН ИНТЕРНЕТ",
                 Pictures = context.Pictures.Where(p => p.Category == (ImageCategory)3).ToList()
             };
+
+            context.Entertainments.Add(e4);
+
+            context.SaveChanges();
         }
 
         private void SeedRooms(ApplicationDbContext context)
@@ -163,6 +178,15 @@ namespace Hotel.Data.Migrations
 
             context.Categories.Add(category4);
 
+            CategoryPictures category5 = new CategoryPictures()
+            {
+                Name = "СПА",
+                ShortDescription = "...",
+                Picture = context.Pictures.First(p => p.Category == (ImageCategory)5)
+            };
+
+            context.Categories.Add(category5);
+
             context.SaveChanges();
         }
 
@@ -228,7 +252,7 @@ namespace Hotel.Data.Migrations
             {
                 Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
                 Image = ImageConverter.ImageToByteArray(path + "hotel2.jpg"),
-                Name="poolOnRoof"
+                Name= "hotel2"
             };
             pictures.Add(hotelPicture2);
 
@@ -240,7 +264,16 @@ namespace Hotel.Data.Migrations
             };
             pictures.Add(reception);
 
-
+            for (int i = 1; i < 8; i++)
+            {
+                Picture newPicture = new Picture
+                {
+                    Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "5"),
+                    Image = ImageConverter.ImageToByteArray(path + "spa" + i + ".jpg"),
+                    Name = "spa" + i
+                };
+                pictures.Add(newPicture);
+            }
 
             pictures.ForEach(s => context.Pictures.AddOrUpdate(p => p.Id, s));
         }

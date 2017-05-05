@@ -13,6 +13,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string Facilities { get; set; }
         public virtual ICollection<Picture> Pictures { get; set; }
     }
 }

@@ -23,5 +23,7 @@
 
         public DateTime? DeletedOn { get; set; }
 
+        public virtual Entertainment EntertainmentPicture { get; set; }
+
     }
 }

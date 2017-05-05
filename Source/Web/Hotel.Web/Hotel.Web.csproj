@@ -235,6 +235,13 @@
     <Content Include="Content\Images\room1.jpg" />
     <Content Include="Content\Images\room2.jpg" />
     <Content Include="Content\Images\room3.jpg" />
+    <Content Include="Content\Images\spa1.jpg" />
+    <Content Include="Content\Images\spa2.jpg" />
+    <Content Include="Content\Images\spa3.jpg" />
+    <Content Include="Content\Images\spa4.jpg" />
+    <Content Include="Content\Images\spa5.jpg" />
+    <Content Include="Content\Images\spa6.jpg" />
+    <Content Include="Content\Images\spa7.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

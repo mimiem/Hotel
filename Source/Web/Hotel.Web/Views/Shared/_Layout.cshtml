@@ -24,7 +24,7 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Галерия", "CategoriesImages", "Images")</li>
+                            <li>@Html.ActionLink("Галерия", "GalleryImages", "Images", new { category = "Room"},null)</li>
                             <li>@Html.ActionLink("Адрес", "Index", "Address")</li>
                             <li>@Html.ActionLink("Резервация", "Add", "Reservation")</li>
                             
@@ -43,7 +43,7 @@
                                     )</li>
                                     <li>
                                         @Html.ActionLink(
-                                        linkText: "Басейни",
+                                        linkText: "СПА център",
                                         actionName: "Details",
                                         controllerName: "Entertainment",
                                         routeValues: new
