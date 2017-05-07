@@ -97,6 +97,8 @@
     
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+    @*google.maps*@
     <script>
       function myMap() {
         var uluru = {lat: 42.099904, lng: 25.221451};
@@ -114,27 +116,13 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy13NX3EGZ_VUNr9AdMqQSplpPESoAkNY&callback=myMap"></script>
 
+    @*cofirm reservation*@
     <script>
         function clicked(e)
         {
             if(!confirm('Сигурни ли сте?'))e.preventDefault();
         }
     </script>
-
-    @*<script>
-    $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
-    })
-    </script>*@
-
 
     @RenderSection("scripts", required: false)
 

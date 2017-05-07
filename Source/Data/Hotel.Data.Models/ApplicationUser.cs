@@ -17,11 +17,9 @@
             this.CreatedOn = DateTime.Now;
             this.PreviousStays = new HashSet<Reservation>();
         }
-        [MaxLength(15, ErrorMessage = "Text can be only {1} symbols")]
-        [RegularExpression("^[a-zA-Z0-9-]+$", ErrorMessage = "{0} can contain letters, digits and dash")]
+        
         public string FirstName { get; set; }
-        [MaxLength(15, ErrorMessage = "Text can be only {1} symbols")]
-        [RegularExpression("^[a-zA-Z0-9-]+$", ErrorMessage = "{0} can contain letters, digits and dash")]
+        
         public string LastName { get; set; }
 
         public DateTime CreatedOn { get; set; }

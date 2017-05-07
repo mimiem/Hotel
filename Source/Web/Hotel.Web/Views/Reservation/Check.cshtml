@@ -2,7 +2,7 @@
 @model CheckReservationViewModel
 
 <div class="row">
-    <div class="col-md-7" id= "sandbox-container">
+    <div class="col-md-8">
         @using (Html.BeginForm("Check", "Reservation", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             <div class="thumbnail">
@@ -33,7 +33,6 @@
                         @Html.DropDownListFor(
                     m => m.RoomType,
                     Model.RoomTypes,
-                    "Избери...",
                     new { @class = "form-control" })
                     </div>
                 </div>
