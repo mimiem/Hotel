@@ -9,7 +9,7 @@
     using Common.Models;
     using global::Hotel.Data.Models;
     using System.Collections.Generic;
-
+    using System.ComponentModel.DataAnnotations;
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public ApplicationUser()
@@ -17,8 +17,11 @@
             this.CreatedOn = DateTime.Now;
             this.PreviousStays = new HashSet<Reservation>();
         }
-
+        [MaxLength(15, ErrorMessage = "Text can be only {1} symbols")]
+        [RegularExpression("^[a-zA-Z0-9-]+$", ErrorMessage = "{0} can contain letters, digits and dash")]
         public string FirstName { get; set; }
+        [MaxLength(15, ErrorMessage = "Text can be only {1} symbols")]
+        [RegularExpression("^[a-zA-Z0-9-]+$", ErrorMessage = "{0} can contain letters, digits and dash")]
         public string LastName { get; set; }
 
         public DateTime CreatedOn { get; set; }
@@ -38,6 +41,7 @@
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+
             return userIdentity;
         }
     }

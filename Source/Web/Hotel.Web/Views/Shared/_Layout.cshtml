@@ -26,7 +26,7 @@
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Галерия", "GalleryImages", "Images", new { category = "Room"},null)</li>
                             <li>@Html.ActionLink("Адрес", "Index", "Address")</li>
-                            <li>@Html.ActionLink("Резервация", "Add", "Reservation")</li>
+                            <li>@Html.ActionLink("Резервация", "Check", "Reservation")</li>
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Развлечения<span class="caret"></span></a>
@@ -115,17 +115,28 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy13NX3EGZ_VUNr9AdMqQSplpPESoAkNY&callback=myMap"></script>
 
     <script>
-      $('#sandbox-container .input-daterange').datepicker({
-         startDate: "-12/30/2014",
-         endDate: "+01/15/2015",
-         startView: 1,
-         clearBtn: true,
-         calendarWeeks: true,
-         autoclose: true,
-         todayHighlight: true
-       });
+        function clicked(e)
+        {
+            if(!confirm('Сигурни ли сте?'))e.preventDefault();
+        }
     </script>
 
+    @*<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+    </script>*@
+
+
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

@@ -20,7 +20,7 @@
             }
             IEnumerable<PictureViewModel> hotelPictures = pictures
                                     .All()
-                                    .Where(p => p.Category == enumCategory)
+                                    .Where(p => p.Category == enumCategory && p.IsDeleted == false)
                                     .To<PictureViewModel>()
                                     .ToList();
 

@@ -310,10 +310,9 @@
     <Content Include="Views\Images\GalleryImages.cshtml" />
     <Content Include="Views\Shared\_VerticalNavBarPartial.cshtml" />
     <Content Include="Views\Address\Index.cshtml" />
-    <Content Include="Views\Reservation\Add.cshtml" />
+    <Content Include="Views\Reservation\Check.cshtml" />
     <Content Include="Views\Reservation\Reserved.cshtml" />
     <Content Include="Views\Reservation\NotAvailable.cshtml" />
-    <Content Include="Views\Reservation\Confirm.cshtml" />
     <Content Include="Views\Entertainment\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />

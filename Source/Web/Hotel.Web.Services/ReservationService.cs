@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Hotel.Data.Models;
-using Hotel.Web.ViewModels.Reservation;
-using Hotel.Web.Infrastructure.Mapping;
-using Hotel.Data.Common.Repository;
-using Hotel.Data.Hotel.Data.Models;
-using Hotel.Data;
-using Hotel.Hotel.Data;
-using Microsoft.AspNet.Identity;
-using System.Web;
-using Microsoft.AspNet.Identity.Owin;
+
 
 namespace Hotel.Web.Services
 {
+    using Data.Models;
+    using ViewModels.Reservation;
+    using Infrastructure.Mapping;
+    using Data.Common.Repository;
+    using Data;
+    using global::Hotel.Hotel.Data;
+
     public class ReservationService
     {
         private readonly IApplicationDbContext db;
@@ -27,6 +25,7 @@ namespace Hotel.Web.Services
             : this(new ApplicationDbContext())
         {
         }
+
         public IEnumerable<RoomViewModel> CheckIfIsAvailable(CheckReservationViewModel modelVM, IRepository<Room> rooms)
         {
             IEnumerable<RoomViewModel> allRooms = rooms

@@ -8,8 +8,7 @@
     using System.Web.Mvc;
     using ViewModels.Reservation;
     using Microsoft.AspNet.Identity;
-    using Data.Hotel.Data.Models;
-    using Infrastructure.Identity;
+
     [RoutePrefix("reservation")]
     public class ReservationController : BaseController
     {
@@ -31,7 +30,7 @@
 
         [Authorize]
         [HttpGet]
-        public ActionResult Add()
+        public ActionResult Check()
         {
             CheckReservationViewModel modelVM = new CheckReservationViewModel();
             modelVM.RoomTypes = this.GetSelectListItems();
@@ -41,7 +40,7 @@
 
         [Authorize]
         [HttpPost]
-        public ActionResult Add(CheckReservationViewModel modelVM)
+        public ActionResult Check(CheckReservationViewModel modelVM)
         {
             modelVM.RoomTypes = this.GetSelectListItems();
 
@@ -60,44 +59,33 @@
 
                     currentReservation.RoomId = roomsAvailable.ElementAt(0).RoomId;
                     currentReservation.UserId = this.User.Identity.GetUserId();
-                   
-                    this.reservations.Add(currentReservation);
-                    //this.reservations.SaveChanges();
 
-                    return this.RedirectToAction("Confirm", modelVM);
+                    this.reservations.Add(currentReservation);
+                    this.reservations.SaveChanges();
+
+                    return this.RedirectToAction("Reserved", modelVM);
 
                 }
             }
 
-            return this.View("Add", modelVM);
+            return this.RedirectToAction("Check");
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult NotAvailable(CheckReservationViewModel model)
         {
+
             return View(model);
         }
 
+        [Authorize]
         [HttpGet]
-        public ActionResult Confirm()
+        public ActionResult Reserved(CheckReservationViewModel model) 
         {
+            UserReservationViewModel modelRes = Mapper.Map<UserReservationViewModel>(model);
 
-            return View();
-        }
-
-        
-
-        [HttpGet]
-        //[Route("confirm/reserved")]
-        public ActionResult Reserved(bool isConfirmed) //TODO The resource cannot be found.
-        {
-
-            //var modelVM = Session["CheckReservationViewModel"] as CheckReservationViewModel;
-
-            this.reservations.SaveChanges();
-
-            //return this.RedirectToAction("Add", modelVM);
-            return View();
+            return View(modelRes);
         }
 
         private IEnumerable<SelectListItem> GetSelectListItems()
@@ -106,10 +94,6 @@
 
             var selectList = new List<SelectListItem>();
 
-            // For each string in the 'elements' variable, create a new SelectListItem object
-            // that has both its Value and Text properties set to a particular value.
-            // This will result in MVC rendering each item as:
-            //     <option value="State Name">State Name</option>
             foreach (var element in allRoomTypes)
             {
                 selectList.Add(new SelectListItem

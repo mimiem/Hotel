@@ -1,7 +1,47 @@
-﻿
-@{
-    ViewBag.Title = "Reserved";
+﻿@using Hotel.Web.ViewModels.Reservation
+@model UserReservationViewModel
+@using Microsoft.AspNet.Identity
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    table#mytable {
+        width: 100%;
+        background-color: #edf1f7;
+    }
+</style>
+
+@if (Request.IsAuthenticated && ViewData.ContainsKey("FullName"))
+{
+    <div class="row">
+        <div class="col-md-7">
+            <div class="thumbnail">
+                <h2>Резервирано</h2>
+                <table id="mytable">
+                    <tr>
+                        <th>Тип стая</th>
+                        <th>Период</th>
+                        <th>На името на</th>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(m => m.RoomType)</td>
+                        <td>@Model.StartDate.Value.ToString("dd.MM.yyyy") - @Model.EndDate.Value.ToString("dd.MM.yyyy")</td>
+                        <td>@(ViewData["FullName"])</td>
+                    </tr>
+
+                    @*Запазена стая от тип @Html.DisplayFor(m => m.RoomType)
+                    за период @Model.StartDate.Value.ToString("dd.MM.yyyy") - @Model.EndDate.Value.ToString("dd.MM.yyyy")
+                    на името на : @(ViewData["FullName"])*@
+                </table>
+            </div>
+        </div>
+    </div>
 }
-
-<h2>Reserved</h2>
-

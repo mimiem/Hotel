@@ -2,10 +2,7 @@
 {
     using Data.Common.Repository;
     using Data.Models;
-    using System.Linq;
     using System.Web.Mvc;
-    using Infrastructure.Mapping;
-    using AutoMapper.QueryableExtensions;
     using ViewModels.Entertainment;
     public class EntertainmentController : BaseController
     {
@@ -22,6 +19,10 @@
         // GET: Entertainment
         public ActionResult Details(string entertainmentId)
         {
+            if (string.IsNullOrEmpty(entertainmentId))
+            {
+                return this.RedirectToAction("Index", "Home"); 
+            }
             Entertainment current = this.entertainments.GetById(int.Parse(entertainmentId));
             EntertainmentViewModel currentVM = this.Mapper.Map<EntertainmentViewModel>(current);
             return View(currentVM);

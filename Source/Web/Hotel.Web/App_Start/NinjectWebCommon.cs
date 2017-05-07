@@ -17,10 +17,7 @@ namespace Hotel.Web.App_Start
     using Data.Hotel.Data.Repositories;
     using Data.Repositories.Base;
     using Data;
-    using Infrastructure.Identity;
-    using System.Security.Principal;
-    using Data.Hotel.Data.Models;
-    using Microsoft.AspNet.Identity;
+   
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();

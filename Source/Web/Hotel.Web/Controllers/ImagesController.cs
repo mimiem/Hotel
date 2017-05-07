@@ -3,15 +3,11 @@
     using Data.Common.Repository;
     using Data.Models;
     using Hotel.Web.ViewModels.Images;
-    using Services;
     using System.Web.Mvc;
     using Infrastructure.Mapping;
     using System.Linq;
-    using Data.Models.Enumerations;
-    using System;
     using System.Collections.Generic;
     using ViewModels.Images;
-    using System.IO;
     using global::Hotel.Services;
 
     [RoutePrefix("images")]
@@ -44,6 +40,11 @@
         [Route("{category}")]
         public ActionResult GalleryImages(string category)
         {
+            if (string.IsNullOrEmpty(category))
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
             IEnumerable<PictureViewModel> hotelPicturesVM = this.service.GetPictures(this.pictures, category);
 
             return View(hotelPicturesVM);

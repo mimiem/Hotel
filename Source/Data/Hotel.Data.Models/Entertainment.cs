@@ -11,6 +11,7 @@
         }
         [Key]
         public int Id { get; set; }
+        [MaxLength(20, ErrorMessage = "Text can be only {1} symbols")]
         public string Name { get; set; }
         public string Description { get; set; }
         public string Facilities { get; set; }
