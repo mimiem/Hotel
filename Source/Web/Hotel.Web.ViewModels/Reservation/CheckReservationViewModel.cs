@@ -7,6 +7,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using CustomAttributes;
     public class CheckReservationViewModel : IMapFrom<Reservation>, IHaveCustomMappings
     {
         [Required]
@@ -15,6 +16,7 @@
         public DateTime? StartDate { get; set; }
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DateGreaterThan("EndDate", ErrorMessage = "End date must be after the start date!")]
         [Display(Name = "Крайна дата")]
         public DateTime? EndDate { get; set; }
         [Required]

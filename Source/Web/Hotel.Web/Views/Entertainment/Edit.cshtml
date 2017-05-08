@@ -1,0 +1,54 @@
+﻿@using Hotel.Web.ViewModels.Entertainment
+@model EntertainmentViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="thumbnail">
+            <h2>Edit Role</h2>
+            @Html.ActionLink("List Entertainments", "Index")
+            <hr />
+            @using (Html.BeginForm("Edit", "Entertainment", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Description, 10, 100, null)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Facilities, new { @class = "col-md-2 control-label" })
+                    @foreach (var facility in Model.Facilities)
+                    {
+                    <div class="col-md-10">
+                        <h3>@Html.DisplayFor(modelItem => facility)</h3>
+                    </div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

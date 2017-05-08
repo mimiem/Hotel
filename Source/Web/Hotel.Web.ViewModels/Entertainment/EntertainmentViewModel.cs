@@ -5,6 +5,7 @@
     using Infrastructure.Mapping;
     using System.Collections.Generic;
     using System.Linq;
+
     public class EntertainmentViewModel : IMapFrom<Entertainment>, IHaveCustomMappings
     {
         public int Id { get; set; }
@@ -17,7 +18,8 @@
         {
             configuration.CreateMap<Entertainment, EntertainmentViewModel>()
                 .ForMember(expr => expr.Facilities, opts => opts.MapFrom(e=>e.Facilities.Split('|')))
-                .ForMember(expr => expr.PictureIds, opts => opts.MapFrom(e => e.Pictures.Select(p=>p.Id)));
+                .ForMember(expr => expr.PictureIds, opts => opts.MapFrom(e => e.Pictures.Select(p=>p.Id)))
+                .ReverseMap();
         }
     }
 }

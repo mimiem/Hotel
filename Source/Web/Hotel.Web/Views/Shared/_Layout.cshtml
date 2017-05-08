@@ -24,14 +24,15 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Галерия", "GalleryImages", "Images", new { category = "Room"},null)</li>
+                            <li>@Html.ActionLink("Галерия", "GalleryImages", "Images", new { category = "Room" }, null)</li>
                             <li>@Html.ActionLink("Адрес", "Index", "Address")</li>
                             <li>@Html.ActionLink("Резервация", "Check", "Reservation")</li>
-                            
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Развлечения<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink(
+                                    <li>
+                                        @Html.ActionLink(
                                         linkText: "Ресторанти",
                                         actionName: "Details",
                                         controllerName: "Entertainment",
@@ -40,49 +41,57 @@
                                             entertainmentId = "1"
                                         },
                                         htmlAttributes: null
-                                    )</li>
-                                    <li>
-                                        @Html.ActionLink(
-                                        linkText: "СПА център",
-                                        actionName: "Details",
-                                        controllerName: "Entertainment",
-                                        routeValues: new
-                                        {
-                                            entertainmentId = "2"
-                                        },
-                                        htmlAttributes: null
-                                    )
-                                </li>
-                                    <li>
-                                        @Html.ActionLink(
-                                        linkText: "Барове",
-                                        actionName: "Details",
-                                        controllerName: "Entertainment",
-                                        routeValues: new
-                                        {
-                                            entertainmentId = "3"
-                                        },
-                                        htmlAttributes: null
-                                    )
-                                </li>
-                                    <li>
-                                        @Html.ActionLink(
-                                        linkText: "Конферентни зали",
-                                        actionName: "Details",
-                                        controllerName: "Entertainment",
-                                        routeValues: new
-                                        {
-                                            entertainmentId = "4"
-                                        },
-                                        htmlAttributes: null
                                     )
                                     </li>
+                                    <li>
+                                        @Html.ActionLink(
+                                            linkText: "СПА център",
+                                            actionName: "Details",
+                                            controllerName: "Entertainment",
+                                            routeValues: new
+                                            {
+                                                entertainmentId = "2"
+                                            },
+                                            htmlAttributes: null
+                                        )
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink(
+                                            linkText: "Барове",
+                                            actionName: "Details",
+                                            controllerName: "Entertainment",
+                                            routeValues: new
+                                            {
+                                                entertainmentId = "3"
+                                            },
+                                            htmlAttributes: null
+                                        )
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink(
+                                            linkText: "Конферентни зали",
+                                            actionName: "Details",
+                                            controllerName: "Entertainment",
+                                            routeValues: new
+                                            {
+                                                entertainmentId = "4"
+                                            },
+                                            htmlAttributes: null
+                                        )
+                                    </li>
                                 </ul>
-                            </li>
-                            <li>
-
-                            </li>
-                        </ul>
+                         </li>
+                         @if (User.IsInRole("Admin"))
+                         {
+                             <li class="dropdown">
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                                 <ul class="dropdown-menu" role="menu">
+                                   <li>@Html.ActionLink("Roles", "Index", "Roles", new { area = "Administration" }, null)</li>
+                                   <li>@Html.ActionLink("Entertainment", "Index", "Entertainment")</li>
+                                 </ul>
+                             </li>
+                         }
+                         </ul>
                         @Html.Partial("_LoginPartial")
                     </div>
                 </div>

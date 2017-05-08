@@ -110,6 +110,7 @@
     <Compile Include="Account\ResetPasswordViewModel.cs" />
     <Compile Include="Account\SendCodeViewModel.cs" />
     <Compile Include="Account\VerifyCodeViewModel.cs" />
+    <Compile Include="CustomAttributes\DateGreaterThanAttribute.cs" />
     <Compile Include="CustomAttributes\EmailAttribute.cs" />
     <Compile Include="CustomAttributes\PhoneNumberAttribute.cs" />
     <Compile Include="Entertainment\EntertainmentViewModel.cs" />

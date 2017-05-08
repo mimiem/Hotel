@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="thumbnail">
+            <h2>Entertainment Listing </h2>
+
+            @Html.ActionLink("Create New Entertainment", "Create")
+            <hr />
+            <div>
+                @foreach (var ent in Model)
+                {
+                    <p>
+                        <strong>@ent.Name | </strong>
+                        <span onclick="return confirm('Are you sure to delete?')"><a href="~/Controllers/EntertainmentController/Delete?Entertainment=@ent.Id" class="delLink" style="color:red;">Delete</a></span> |
+                        @Html.ActionLink("Edit", "Edit", new { id = @ent.Id })
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

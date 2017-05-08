@@ -328,6 +328,9 @@
     <Content Include="Views\Reservation\Reserved.cshtml" />
     <Content Include="Views\Reservation\NotAvailable.cshtml" />
     <Content Include="Views\Entertainment\Details.cshtml" />
+    <Content Include="Views\Entertainment\Create.cshtml" />
+    <Content Include="Views\Entertainment\Edit.cshtml" />
+    <Content Include="Views\Entertainment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Administration\Models\" />

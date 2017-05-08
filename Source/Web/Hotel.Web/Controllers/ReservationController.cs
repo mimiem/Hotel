@@ -28,7 +28,7 @@
             this.service = new ReservationService();
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         [HttpGet]
         public ActionResult Check()
         {
@@ -38,7 +38,7 @@
             return View(modelVM);
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         [HttpPost]
         public ActionResult Check(CheckReservationViewModel modelVM)
         {
@@ -71,7 +71,7 @@
             return this.RedirectToAction("Check");
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         [HttpGet]
         public ActionResult NotAvailable(CheckReservationViewModel model)
         {
@@ -79,7 +79,7 @@
             return View(model);
         }
 
-        [Authorize]
+        [Authorize(Roles = "User")]
         [HttpGet]
         public ActionResult Reserved(CheckReservationViewModel model) 
         {
