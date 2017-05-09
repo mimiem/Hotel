@@ -1,4 +1,5 @@
-﻿@using Hotel.Web.ViewModels.Entertainment
+﻿@using System.Collections.Generic;
+@using Hotel.Web.ViewModels.Entertainment
 @model EntertainmentViewModel
 
 <div class="row">
@@ -55,7 +56,8 @@
     <div class="col-xs-7">
         <div class="thumbnail">
             <h4>Предлагаме ви:</h4>
-            @foreach (var item in Model.Facilities)
+            
+            @foreach (var item in ViewBag.Facilities)
             {
                 <p style="color:#6999e5"> > @item</p>
             }

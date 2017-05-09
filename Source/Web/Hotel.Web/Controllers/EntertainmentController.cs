@@ -2,6 +2,7 @@
 {
     using Data.Common.Repository;
     using Data.Models;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using ViewModels.Entertainment;
@@ -22,7 +23,8 @@
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            var all = entertainments.All();
+            var all = entertainments.All()
+                                    .Where(e=>e.IsDeleted == false);
             return View(all);
         }
 
@@ -68,12 +70,15 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
+        [Route("edit/{id:int}")]
         public ActionResult Edit(EntertainmentViewModel model)
         {
             if (ModelState.IsValid)
             {
-                Entertainment ent = Mapper.Map<Entertainment>(model);
-                this.entertainments.Update(ent);
+                Entertainment current = this.entertainments.GetById(model.Id);
+                this.entertainments.Detach(current);
+                Entertainment edited = Mapper.Map<Entertainment>(model);
+                this.entertainments.Update(edited);
                 this.entertainments.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -84,7 +89,7 @@
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-
+        [Route("delete/{id:int}")]
         public ActionResult Delete(int id)
         {
             Entertainment ent = this.entertainments.GetById(id);
@@ -102,6 +107,9 @@
             }
             Entertainment current = this.entertainments.GetById(int.Parse(entertainmentId));
             EntertainmentViewModel currentVM = this.Mapper.Map<EntertainmentViewModel>(current);
+            IEnumerable<string> facilities = current.Facilities.Split('|');
+            ViewBag.Facilities = facilities;
+
             return View(currentVM);
         }
 

@@ -32,19 +32,19 @@ namespace Hotel.Web
                 defaults: new { controller = "Reservation", action = "Reserved" });
 
             routes.MapRoute(
-                name: "Create Enterteinment",
+                name: "Create Entertainment",
                 url: "entertainment/create",
                 defaults: new { controller = "Entertainment", action = "Create" });
                                                     
             routes.MapRoute(                        
-                name: "Edit Enterteinment",         
+                name: "Edit Entertainment",         
                 url: "entertainment/edit/{id}",     
                 defaults: new { controller = "Entertainment", action = "Edit", id = UrlParameter.Optional });
                                                     
-            routes.MapRoute(                        
-                name: "Delete Enterteinment",       
-                url: "entertainment/delete/{id}",   
-                defaults: new { controller = "Entertainment", action = "Delete", id = UrlParameter.Optional });
+            //routes.MapRoute(                        
+            //    name: "Delete Entertainment",       
+            //    url: "entertainment/delete/{id}",   
+            //    defaults: new { controller = "Entertainment", action = "Delete", id = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",

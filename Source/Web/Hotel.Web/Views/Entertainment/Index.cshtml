@@ -15,7 +15,7 @@
                 {
                     <p>
                         <strong>@ent.Name | </strong>
-                        <span onclick="return confirm('Are you sure to delete?')"><a href="~/Controllers/EntertainmentController/Delete?Entertainment=@ent.Id" class="delLink" style="color:red;">Delete</a></span> |
+                        <span onclick="return confirm('Are you sure to delete?')">@Html.ActionLink("Delete", "Delete", "Entertainment", new { id = @ent.Id }, new { @style="color:red;" })</span> |
                         @Html.ActionLink("Edit", "Edit", new { id = @ent.Id })
                     </p>
                 }
