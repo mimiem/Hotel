@@ -18,6 +18,7 @@
             {
                 enumCategory = (ImageCategory)Enum.Parse(typeof(ImageCategory), category);
             }
+
             IEnumerable<PictureViewModel> hotelPictures = pictures
                                     .All()
                                     .Where(p => p.Category == enumCategory && p.IsDeleted == false)

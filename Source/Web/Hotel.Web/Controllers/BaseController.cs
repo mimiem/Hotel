@@ -1,6 +1,7 @@
 ﻿namespace Hotel.Web.Controllers
 {
     using AutoMapper;
+    using Data.Hotel.Data.Models;
     using global::Hotel.Hotel.Data;
     using Infrastructure.Mapping;
     using System.Linq;
@@ -25,7 +26,7 @@
 
                 if (!string.IsNullOrEmpty(username))
                 {
-                    var user = context.Users.SingleOrDefault(u => u.UserName == username);
+                    ApplicationUser user = context.Users.SingleOrDefault(u => u.UserName == username);
                     string fullName = string.Concat(new string[] { user.FirstName, " ", user.LastName });
                     ViewData.Add("FullName", fullName);
                 }

@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{44BE0362-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{4BD2A4F3-F1C6-400A-A131-BF3268DFCB26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Common", "Hotel.Common\Hotel.Common.csproj", "{DE8D62C3-0331-4E59-A989-C5FC7A16E3FF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Data", "Data\Hotel.Data\Hotel.Data.csproj", "{A7291ED5-F0B1-4A06-AF07-07068CFE06CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Web", "Web\Hotel.Web\Hotel.Web.csproj", "{F66CD5AE-FE20-4D4F-A257-041B628739F7}"
@@ -31,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DE8D62C3-0331-4E59-A989-C5FC7A16E3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE8D62C3-0331-4E59-A989-C5FC7A16E3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE8D62C3-0331-4E59-A989-C5FC7A16E3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE8D62C3-0331-4E59-A989-C5FC7A16E3FF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A7291ED5-F0B1-4A06-AF07-07068CFE06CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A7291ED5-F0B1-4A06-AF07-07068CFE06CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7291ED5-F0B1-4A06-AF07-07068CFE06CF}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -12,11 +12,11 @@
     {
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DateGreaterThan("EndDate")]
         [Display(Name = "Начална дата")]
         public DateTime? StartDate { get; set; }
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        [DateGreaterThan("EndDate", ErrorMessage = "End date must be after the start date!")]
         [Display(Name = "Крайна дата")]
         public DateTime? EndDate { get; set; }
         [Required]

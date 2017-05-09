@@ -13,11 +13,11 @@
             return ms.ToArray();
         }
 
-        public static Image ByteArrayToImage(byte[] byteArrayIn)
-        {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
-            return returnImage;
-        }
+        //public static Image ByteArrayToImage(byte[] byteArrayIn)
+        //{
+        //    MemoryStream ms = new MemoryStream(byteArrayIn);
+        //    Image returnImage = Image.FromStream(ms);
+        //    return returnImage;
+        //}
     }
 }

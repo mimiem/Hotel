@@ -13,7 +13,6 @@
             @using (Html.BeginForm("Edit", "Entertainment", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
                 @Html.HiddenFor(model => model.Id)
 
                 <div class="form-group">

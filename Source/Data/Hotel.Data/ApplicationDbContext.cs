@@ -66,14 +66,5 @@
             return base.Set<T>();
         }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    //one-to-many 
-        //    modelBuilder.Entity<Reservation>()
-        //                .HasRequired<Room>(s => s.Room) // Student entity requires Standard 
-        //                .WithMany(s => s.Reservations); // Standard entity includes many Students entities
-
-        //}
-
     }
 }

@@ -21,10 +21,10 @@
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
+        [Route("Index")]
         public ActionResult Index()
         {
-            var all = entertainments.All()
-                                    .Where(e=>e.IsDeleted == false);
+            var all = entertainments.All().Where(e=>e.IsDeleted == false);
             return View(all);
         }
 
@@ -62,9 +62,13 @@
         {
             Entertainment model = this.entertainments.GetById(id);
 
-            EntertainmentViewModel modelVM = Mapper.Map<EntertainmentViewModel>(model);
+            if (model != null)
+            {
+                EntertainmentViewModel modelVM = Mapper.Map<EntertainmentViewModel>(model);
+                return View(modelVM);
+            }
 
-            return View(modelVM);
+            return this.RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -101,16 +105,17 @@
 
         public ActionResult Details(string entertainmentId)
         {
-            if (string.IsNullOrEmpty(entertainmentId))
-            {
-                return this.RedirectToAction("Index", "Home"); 
-            }
             Entertainment current = this.entertainments.GetById(int.Parse(entertainmentId));
-            EntertainmentViewModel currentVM = this.Mapper.Map<EntertainmentViewModel>(current);
-            IEnumerable<string> facilities = current.Facilities.Split('|');
-            ViewBag.Facilities = facilities;
 
-            return View(currentVM);
+            if (current != null)
+            {
+                EntertainmentViewModel currentVM = this.Mapper.Map<EntertainmentViewModel>(current);
+                IEnumerable<string> facilities = current.Facilities.Split('|');
+                ViewBag.Facilities = facilities;
+                return View(currentVM);
+            }
+
+            return this.RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

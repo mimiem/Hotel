@@ -4,10 +4,7 @@
     using Data.Models;
     using Hotel.Web.ViewModels.Images;
     using System.Web.Mvc;
-    using Infrastructure.Mapping;
-    using System.Linq;
     using System.Collections.Generic;
-    using ViewModels.Images;
     using global::Hotel.Services;
 
     [RoutePrefix("images")]
@@ -23,17 +20,6 @@
             this.pictures = pictures;
             this.categories = categories;
             this.service = new ImagesService();
-        }
-
-        [HttpGet]
-        public ActionResult CategoriesImages()
-        {
-            IEnumerable<CategoryPictureViewModel> categoriesVM = this.categories
-                                                                    .All()
-                                                                    .To<CategoryPictureViewModel>()
-                                                                    .ToList();
-
-            return View(categoriesVM);
         }
 
         [HttpGet]

@@ -320,7 +320,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Images\CategoriesImages.cshtml" />
     <Content Include="Views\Images\GalleryImages.cshtml" />
     <Content Include="Views\Shared\_VerticalNavBarPartial.cshtml" />
     <Content Include="Views\Address\Index.cshtml" />
