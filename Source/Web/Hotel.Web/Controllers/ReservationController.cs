@@ -28,7 +28,7 @@
             this.service = new ReservationService();
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         [HttpGet]
         public ActionResult Check()
         {
@@ -38,7 +38,7 @@
             return View(modelVM);
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         public ActionResult Check(CheckReservationViewModel modelVM)
         {
@@ -71,7 +71,7 @@
             return this.RedirectToAction("Check");
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         [HttpGet]
         public ActionResult NotAvailable(CheckReservationViewModel model)
         {
@@ -79,13 +79,42 @@
             return View(model);
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         [HttpGet]
         public ActionResult Reserved(CheckReservationViewModel model) 
         {
             UserReservationViewModel modelRes = Mapper.Map<UserReservationViewModel>(model);
-
+            RoomType type = this.roomTypes.All().First(rt => rt.Type == model.RoomType);
+            modelRes.PricePerNight = type.Price;
             return View(modelRes);
+        }
+
+        [Authorize(Roles = "User,Admin")]
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Reservation reservation = this.reservations.GetById(id);
+            CheckReservationViewModel model = Mapper.Map<CheckReservationViewModel>(reservation);
+            return View(model);
+        }
+
+        [Authorize(Roles = "User,Admin")]
+        [HttpGet]
+        public ActionResult Edit(CheckReservationViewModel model)
+        {
+
+            //TODO
+            return View();
+        }
+
+        [Authorize(Roles = "User,Admin")]
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Reservation reservation = this.reservations.GetById(id);
+            this.reservations.Delete(reservation);
+            this.reservations.SaveChanges();
+            return this.RedirectToAction("Index", "Home");
         }
 
         private IEnumerable<SelectListItem> GetSelectListItems()

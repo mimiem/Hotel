@@ -21,7 +21,7 @@
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        [Route("Index")]
+        [Route("index")]
         public ActionResult Index()
         {
             var all = entertainments.All().Where(e=>e.IsDeleted == false);
@@ -30,7 +30,7 @@
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        [Route("Create")]
+        [Route("create")]
         public ActionResult Create()
         {
             return View();
@@ -39,7 +39,7 @@
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        [Route("Create")]
+        [Route("create")]
         public ActionResult Create(EntertainmentViewModel model)
         {
             if (ModelState.IsValid)

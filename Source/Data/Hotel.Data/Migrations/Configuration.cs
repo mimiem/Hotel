@@ -38,8 +38,8 @@ namespace Hotel.Data.Migrations
                 "Хотелът разполага и с бар - мецанин както и с бар - тераса за летните месеци." +
                 "За най - малките гости на хотела предлагаме услугите на детска занималня с много играчки и забавни игри.",
                 Facilities = "Ресторант – 160 места Лоби бар – 40 места|Пицария \"Верди\"|Детска занималня|Български специалитети|Европейска кухня",
-                
-                Pictures = context.Pictures.Where(p=>p.Category == (ImageCategory)1).ToList()
+
+                Pictures = context.Pictures.Where(p => p.Category == (ImageCategory)1).ToList()
             };
 
             context.Entertainments.AddOrUpdate(e1);
@@ -64,7 +64,7 @@ namespace Hotel.Data.Migrations
                 Name = "Барове",
                 Description = "Заповядайте в пиано-бара. Тук ще намерите подбрано разнообразие от алкохолни и безалкохолни питиета, коктейли, пури – за ценители! " +
                 "Със силектирана музика, нашите музиканти и млад персонал, ще се погрижат за Вашето безупречно обслужване и добро настоение! ",
-                Facilities="Бар - мецанин|Бар - тераса|Коктейли|Класически напитки|Игрална на зала|Билярд|Електронни игри",
+                Facilities = "Бар - мецанин|Бар - тераса|Коктейли|Класически напитки|Игрална на зала|Билярд|Електронни игри",
                 Pictures = context.Pictures.Where(p => p.Category == (ImageCategory)2).ToList()
             };
             context.Entertainments.Add(e3);
@@ -77,7 +77,7 @@ namespace Hotel.Data.Migrations
                 "На своите бизнес гости хотел \"Blue River\" предлага конферентни зали с най - съвременно оборудване, " +
                 "възможности за мултимедийни презентации, " +
                 "напълно професионално озвучаване с непрекъснато техническо присъствие и др.",
-                Facilities="ЗАЛА С 120 МЕСТА|VIP-ЗАЛА С 20 МЕСТА|ПРОФЕСИОНАЛНО ОЗВУЧАВАНЕ|МУЛТИМЕДИЙНИ ПРЕЗЕНТАЦИИ|ТЕХНИЧЕСКО ПРИСЪСТВИЕ|БЕЗЖИЧЕН ИНТЕРНЕТ",
+                Facilities = "ЗАЛА С 120 МЕСТА|VIP-ЗАЛА С 20 МЕСТА|ПРОФЕСИОНАЛНО ОЗВУЧАВАНЕ|МУЛТИМЕДИЙНИ ПРЕЗЕНТАЦИИ|ТЕХНИЧЕСКО ПРИСЪСТВИЕ|БЕЗЖИЧЕН ИНТЕРНЕТ",
                 Pictures = context.Pictures.Where(p => p.Category == (ImageCategory)3).ToList()
             };
 
@@ -90,21 +90,21 @@ namespace Hotel.Data.Migrations
         {
             IEnumerable<Room> rooms = new List<Room>()
             {
-                new Room() {RoomNumber=1,RoomType=GetRoomType(1,context)},
-                new Room() {RoomNumber=2,RoomType=GetRoomType(1,context)},
-                new Room() {RoomNumber=3,RoomType=GetRoomType(1,context)},
-                new Room() {RoomNumber=4,RoomType=GetRoomType(1,context)},
-                new Room() {RoomNumber=5,RoomType=GetRoomType(1,context)},
-                new Room() {RoomNumber=6,RoomType=GetRoomType(2,context)},
-                new Room() {RoomNumber=7,RoomType=GetRoomType(2,context)},
-                new Room() {RoomNumber=8,RoomType=GetRoomType(2,context)},
-                new Room() {RoomNumber=9,RoomType=GetRoomType(2,context)},
-                new Room() {RoomNumber=10,RoomType=GetRoomType(2,context)},
-                new Room() {RoomNumber=11,RoomType=GetRoomType(3,context)},
-                new Room() {RoomNumber=12,RoomType=GetRoomType(3,context)},
-                new Room() {RoomNumber=13,RoomType=GetRoomType(3,context)},
-                new Room() {RoomNumber=14,RoomType=GetRoomType(4,context)},
-                new Room() {RoomNumber=15,RoomType=GetRoomType(4,context)}
+                new Room() {RoomNumber=1,RoomType=GetRoomType(5,context)},
+                new Room() {RoomNumber=2,RoomType=GetRoomType(5,context)},
+                new Room() {RoomNumber=3,RoomType=GetRoomType(5,context)},
+                new Room() {RoomNumber=4,RoomType=GetRoomType(5,context)},
+                new Room() {RoomNumber=5,RoomType=GetRoomType(5,context)},
+                new Room() {RoomNumber=6,RoomType=GetRoomType(6,context)},
+                new Room() {RoomNumber=7,RoomType=GetRoomType(6,context)},
+                new Room() {RoomNumber=8,RoomType=GetRoomType(6,context)},
+                new Room() {RoomNumber=9,RoomType=GetRoomType(6,context)},
+                new Room() {RoomNumber=10,RoomType=GetRoomType(6,context)},
+                new Room() {RoomNumber=11,RoomType=GetRoomType(7,context)},
+                new Room() {RoomNumber=12,RoomType=GetRoomType(7,context)},
+                new Room() {RoomNumber=13,RoomType=GetRoomType(7,context)},
+                new Room() {RoomNumber=14,RoomType=GetRoomType(8,context)},
+                new Room() {RoomNumber=15,RoomType=GetRoomType(8,context)}
 
             };
 
@@ -126,10 +126,10 @@ namespace Hotel.Data.Migrations
         {
             IEnumerable<RoomType> types = new List<RoomType>()
             {
-                new RoomType() {Type="Двойна стая" },
-                new RoomType() {Type="Двойна стая Deluxe" },
-                new RoomType() {Type="Апартамент" },
-                new RoomType() {Type="Апартамент фамилен" }
+                new RoomType() {Type="Двойна стая", Price = 55.0 },
+                new RoomType() {Type="Двойна стая Deluxe", Price = 75.0 },
+                new RoomType() {Type="Апартамент", Price = 90.0 },
+                new RoomType() {Type="Апартамент фамилен", Price = 120.0 }
             };
 
             foreach (var type in types)
@@ -201,8 +201,8 @@ namespace Hotel.Data.Migrations
                 Picture newPicture = new Picture
                 {
                     Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "0"),
-                    Image = ImageConverter.ImageToByteArray(path + "room"+i+".jpg"),
-                    Name="room" + i
+                    Image = ImageConverter.ImageToByteArray(path + "room" + i + ".jpg"),
+                    Name = "room" + i
                 };
                 pictures.Add(newPicture);
             }
@@ -224,7 +224,7 @@ namespace Hotel.Data.Migrations
                 {
                     Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "3"),
                     Image = ImageConverter.ImageToByteArray(path + "hall" + i + ".jpg"),
-                    Name="hall"+i
+                    Name = "hall" + i
                 };
                 pictures.Add(newPicture);
             }
@@ -235,7 +235,7 @@ namespace Hotel.Data.Migrations
                 {
                     Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "2"),
                     Image = ImageConverter.ImageToByteArray(path + "piano-bar" + i + ".jpg"),
-                    Name= "bar"+i
+                    Name = "bar" + i
                 };
                 pictures.Add(newPicture);
             }
@@ -244,7 +244,7 @@ namespace Hotel.Data.Migrations
             {
                 Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
                 Image = ImageConverter.ImageToByteArray(path + "hotel1.jpg"),
-                Name="hotel1"
+                Name = "hotel1"
             };
             pictures.Add(hotelPicture1);
 
@@ -252,7 +252,7 @@ namespace Hotel.Data.Migrations
             {
                 Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
                 Image = ImageConverter.ImageToByteArray(path + "hotel2.jpg"),
-                Name= "hotel2"
+                Name = "hotel2"
             };
             pictures.Add(hotelPicture2);
 
@@ -260,7 +260,7 @@ namespace Hotel.Data.Migrations
             {
                 Category = (ImageCategory)Enum.Parse(typeof(ImageCategory), "4"),
                 Image = ImageConverter.ImageToByteArray(path + "reception.jpg"),
-                Name="reception"
+                Name = "reception"
             };
             pictures.Add(reception);
 

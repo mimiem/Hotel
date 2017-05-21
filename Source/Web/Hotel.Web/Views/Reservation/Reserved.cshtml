@@ -29,12 +29,20 @@
                     <tr>
                         <th>Тип стая</th>
                         <th>Период</th>
+                        <th>Нощувки</th>
+                        <th>Цена на вечер</th>
+                        <th>Цена (общо)</th>
                         <th>На името на</th>
+                        <th>Промяна</th>
                     </tr>
                     <tr>
                         <td>@Html.DisplayFor(m => m.RoomType)</td>
                         <td>@Model.StartDate.Value.ToString("dd.MM.yyyy") - @Model.EndDate.Value.ToString("dd.MM.yyyy")</td>
+                        <td>@Html.DisplayFor(m=>m.Days)</td>
+                        <td>@Html.DisplayFor(m=>m.PricePerNight)</td>
+                        <td>@Html.DisplayFor(m=>m.PriceTotal)</td>
                         <td>@(ViewData["FullName"])</td>
+                        <td></td>
                     </tr>
                 </table>
             </div>

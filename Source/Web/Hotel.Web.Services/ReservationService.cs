@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-
-namespace Hotel.Web.Services
+﻿namespace Hotel.Web.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Data.Models;
     using ViewModels.Reservation;
     using Infrastructure.Mapping;
