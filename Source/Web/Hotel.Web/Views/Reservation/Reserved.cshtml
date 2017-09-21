@@ -42,7 +42,10 @@
                         <td>@Html.DisplayFor(m=>m.PricePerNight)</td>
                         <td>@Html.DisplayFor(m=>m.PriceTotal)</td>
                         <td>@(ViewData["FullName"])</td>
-                        <td></td>
+                        <td>
+                            @Html.ActionLink("Промени", "Edit", "Reservation")
+                            @Html.ActionLink("Изтрий", "Delete", "Reservation")
+                        </td>
                     </tr>
                 </table>
             </div>

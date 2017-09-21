@@ -7,39 +7,42 @@
         {
             <div class="thumbnail">
                 @Html.AntiForgeryToken()
+                <div style="margin-top: 20px; margin-left: 50px">
+                    <h3>Направи резервация</h3>
+                    <hr />
+                    <br />
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
 
-                <h4>Направи резервация</h4>
-                @Html.ValidationSummary("", new { @class = "text-danger" })
-
-                <div class="form-group">
-                    @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label", @for = "date" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.StartDate, new { type = "date", @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label", @for = "date" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.StartDate, new { type = "date", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(m => m.EndDate, new { @class = "col-md-2 control-label", @for = "date" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.EndDate, new { type = "date", @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EndDate, new { @class = "col-md-2 control-label", @for = "date" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.EndDate, new { type = "date", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RoomType, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RoomType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(
                     m => m.RoomType,
                     Model.RoomTypes,
                     new { @class = "form-control" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" class="btn btn-info" onclick="clicked(event)" value="Резервирай" />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-info" onclick="clicked(event)" value="Резервирай" />
+                        </div>
                     </div>
                 </div>
             </div>
