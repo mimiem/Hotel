@@ -1,4 +1,4 @@
-﻿namespace Hotel.Web.ViewModels.Entertainment
+﻿namespace Hotel.Web.Hotel.Web.ViewModels.Entertainment
 {
     using AutoMapper;
     using Data.Models;

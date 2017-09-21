@@ -2,10 +2,11 @@
 {
     using Data.Common.Repository;
     using Data.Models;
+    using Hotel.Web.ViewModels.Entertainment;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using ViewModels.Entertainment;
+
     [RoutePrefix("entertainment")]
     public class EntertainmentController : BaseController
     {

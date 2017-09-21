@@ -1,16 +1,14 @@
 ﻿namespace Hotel.Web.Hotel.Web.ViewModels.Reservation
 {
+    using System;
+    using AutoMapper;
     using Infrastructure.Mapping;
     using Data.Models;
-    using AutoMapper;
-    using System;
-    using global::Hotel.Web.ViewModels.Reservation;
 
-    public class UserReservationViewModel : IMapFrom<CheckReservationViewModel>, IHaveCustomMappings
+    public class UserReservationAllViewModel : IMapFrom<Reservation>, IHaveCustomMappings
     {
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public string RoomType { get; set; }
         public int Days
         {
             get
@@ -19,6 +17,9 @@
                 return diff.Value.Days;
             }
         }
+        public int RoomId { get; set; }
+
+        public string RoomType { get; set; }
         public double PricePerNight { get; set; }
         public double PriceTotal
         {
@@ -30,13 +31,11 @@
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<CheckReservationViewModel, UserReservationViewModel>()
+            configuration.CreateMap<Reservation, UserReservationAllViewModel>()
                 .ForMember(expr => expr.PricePerNight, opts => opts.Ignore())
                 .ForMember(expr => expr.Days, opts => opts.Ignore())
                 .ForMember(expr => expr.PriceTotal, opts => opts.Ignore())
                 .ReverseMap();
-
-            
         }
     }
 }

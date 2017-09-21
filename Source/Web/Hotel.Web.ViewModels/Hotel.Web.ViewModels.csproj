@@ -128,6 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation\CheckReservationViewModel.cs" />
     <Compile Include="Reservation\RoomViewModel.cs" />
+    <Compile Include="Reservation\UserReservationAllViewModel.cs" />
     <Compile Include="Reservation\UserReservationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,14 +1,16 @@
 ﻿@using Hotel.Web.Hotel.Web.ViewModels.Manage
 @model IndexViewModel
+
 @{
     ViewBag.Title = "Профил";
 }
+
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div class="row">
     <div class="col-md-12">
         <div class="thumbnail">
-            <div style="margin-top: 20px; margin-left: 50px">
+            <div style="margin-top: 20px; margin-left: 50px; margin-bottom: 20px; margin-right: 50px">
                 <h3>@ViewBag.Title</h3>
                 <hr />
                 <br />
@@ -20,6 +22,7 @@
                 {
                     @Html.ActionLink("Create", "SetPassword")
                 }
+
             </div>
         </div>
     </div>

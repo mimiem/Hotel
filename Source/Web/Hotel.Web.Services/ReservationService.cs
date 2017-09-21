@@ -9,7 +9,7 @@
     using Data.Common.Repository;
     using Data;
     using global::Hotel.Hotel.Data;
-
+    using Hotel.Web.ViewModels.Reservation;
     public class ReservationService
     {
         private readonly IApplicationDbContext db;
@@ -88,6 +88,23 @@
             }
 
             return roomsAvailable;
+        }
+
+        public IEnumerable<UserReservationAllViewModel> GetAllUserReservations(IRepository<Reservation> reservations, string userId)
+        {
+            IEnumerable<UserReservationAllViewModel> allReservetions = reservations
+                                                                    .All()
+                                                                    .Where(r => r.UserId == userId)
+                                                                    .To<UserReservationAllViewModel>()
+                                                                    .ToList();
+
+            return allReservetions;
+        }
+
+        public RoomType GetRoomType(IRepository<RoomType> roomTypes, int roomId)
+        {
+            RoomType type = roomTypes.GetById(roomId);
+            return type;
         }
 
     }

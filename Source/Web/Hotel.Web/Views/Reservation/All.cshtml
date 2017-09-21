@@ -1,0 +1,59 @@
+﻿@using Hotel.Web.Hotel.Web.ViewModels.Reservation
+@model IEnumerable<UserReservationAllViewModel>
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All</h2>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    table#mytable {
+        width: 100%;
+        background-color: #edf1f7;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="thumbnail">
+            <h2>Резервирано</h2>
+            <table id="mytable">
+                <tr>
+                    <th>Тип стая</th>
+                    <th>Период</th>
+                    <th>Нощувки</th>
+                    <th>Цена на вечер</th>
+                    <th>Цена (общо)</th>
+                    <th>На името на</th>
+                    <th>Промяна</th>
+                </tr>
+                @foreach (var res in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => res.RoomType)</td>
+                        <td>@res.StartDate.Value.ToString("dd.MM.yyyy") - @res.EndDate.Value.ToString("dd.MM.yyyy")</td>
+                        <td>@Html.DisplayFor(m => res.Days)</td>
+                        <td>@Html.DisplayFor(m => res.PricePerNight)</td>
+                        <td>@Html.DisplayFor(m => res.PriceTotal)</td>
+                        <td>@(ViewData["FullName"])</td>
+                        <td>
+                            @Html.ActionLink("Промени", "Edit", "Reservation")
+                            @Html.ActionLink("Изтрий", "Delete", "Reservation")
+                        </td>
+                    </tr>
+                }
+                
+            </table>
+        </div>
+    </div>
+</div>

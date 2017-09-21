@@ -8,6 +8,7 @@
     using System.Web.Mvc;
     using ViewModels.Reservation;
     using Microsoft.AspNet.Identity;
+    using Hotel.Web.ViewModels.Reservation;
 
     [RoutePrefix("reservation")]
     public class ReservationController : BaseController
@@ -84,9 +85,19 @@
         public ActionResult Reserved(CheckReservationViewModel model) 
         {
             UserReservationViewModel modelRes = Mapper.Map<UserReservationViewModel>(model);
-            RoomType type = this.roomTypes.All().First(rt => rt.Type == model.RoomType);
+            RoomType type = this.roomTypes.All().FirstOrDefault(t => t.Type == model.RoomType);
             modelRes.PricePerNight = type.Price;
             return View(modelRes);
+        }
+
+        [Authorize(Roles = "User,Admin")]
+        [HttpGet]
+        public ActionResult All()
+        {
+            //TODO
+            var userId = User.Identity.GetUserId();
+            var allReservations = this.service.GetAllUserReservations(this.reservations, userId);
+            return View(allReservations);
         }
 
         [Authorize(Roles = "User,Admin")]

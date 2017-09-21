@@ -17,7 +17,9 @@ namespace Hotel.Web.App_Start
     using Data.Hotel.Data.Repositories;
     using Data.Repositories.Base;
     using Data;
-   
+    using System.Collections.Generic;
+    using ViewModels.Reservation;
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -78,7 +80,6 @@ namespace Hotel.Web.App_Start
 
             kernel.Bind<IApplicationDbContext>().To<ApplicationDbContext>().InSingletonScope();
 
-            
         }        
     }
 }

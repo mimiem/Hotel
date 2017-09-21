@@ -8,15 +8,26 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using Hotel.Web.ViewModels.Manage;
+    using Services;
+    using Data.Models;
+    using Data.Common.Repository;
 
     [Authorize]
     public class ManageController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ReservationService service;
+        private readonly IRepository<Reservation> reservations;
+        private readonly IRepository<RoomType> roomTypes;
+        private readonly IRepository<Room> rooms;
 
-        public ManageController()
+        public ManageController(IRepository<Reservation> reservations, IRepository<RoomType> roomTypes, IRepository<Room> rooms)
         {
+            this.service = new ReservationService();
+            this.reservations = reservations;
+            this.roomTypes = roomTypes;
+            this.rooms = rooms;
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -71,6 +82,7 @@
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+
             return View(model);
         }
 

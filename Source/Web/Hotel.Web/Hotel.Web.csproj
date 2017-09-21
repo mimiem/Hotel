@@ -330,6 +330,7 @@
     <Content Include="Views\Entertainment\Create.cshtml" />
     <Content Include="Views\Entertainment\Edit.cshtml" />
     <Content Include="Views\Entertainment\Index.cshtml" />
+    <Content Include="Views\Reservation\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Administration\Models\" />
