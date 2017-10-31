@@ -7,6 +7,7 @@
 
     public class UserReservationAllViewModel : IMapFrom<Reservation>, IHaveCustomMappings
     {
+        public int Id { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public int Days
@@ -32,9 +33,9 @@
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Reservation, UserReservationAllViewModel>()
-                .ForMember(expr => expr.PricePerNight, opts => opts.Ignore())
+                .ForMember(expr => expr.RoomType, opts => opts.MapFrom(r => r.Room.RoomType.Type))
+                .ForMember(expr => expr.PricePerNight, opts => opts.MapFrom(r => r.Room.RoomType.Price))
                 .ForMember(expr => expr.Days, opts => opts.Ignore())
-                .ForMember(expr => expr.PriceTotal, opts => opts.Ignore())
                 .ReverseMap();
         }
     }

@@ -8,9 +8,9 @@
     using System.Web.Mvc;
     using ViewModels.Reservation;
     using Microsoft.AspNet.Identity;
-    using Hotel.Web.ViewModels.Reservation;
 
     [RoutePrefix("reservation")]
+    [Authorize(Roles = "User,Admin")]
     public class ReservationController : BaseController
     {
         private ReservationService service;
@@ -29,8 +29,8 @@
             this.service = new ReservationService();
         }
 
-        [Authorize(Roles = "User,Admin")]
         [HttpGet]
+        [Route("check")]
         public ActionResult Check()
         {
             CheckReservationViewModel modelVM = new CheckReservationViewModel();
@@ -39,8 +39,9 @@
             return View(modelVM);
         }
 
-        [Authorize(Roles = "User,Admin")]
         [HttpPost]
+        [Route("check")]
+        [ValidateAntiForgeryToken]
         public ActionResult Check(CheckReservationViewModel modelVM)
         {
             modelVM.RoomTypes = this.GetSelectListItems();
@@ -64,7 +65,7 @@
                     this.reservations.Add(currentReservation);
                     this.reservations.SaveChanges();
 
-                    return this.RedirectToAction("Reserved", modelVM);
+                    return this.RedirectToAction("All");
 
                 }
             }
@@ -72,7 +73,6 @@
             return this.RedirectToAction("Check");
         }
 
-        [Authorize(Roles = "User,Admin")]
         [HttpGet]
         public ActionResult NotAvailable(CheckReservationViewModel model)
         {
@@ -80,52 +80,53 @@
             return View(model);
         }
 
-        [Authorize(Roles = "User,Admin")]
         [HttpGet]
-        public ActionResult Reserved(CheckReservationViewModel model) 
-        {
-            UserReservationViewModel modelRes = Mapper.Map<UserReservationViewModel>(model);
-            RoomType type = this.roomTypes.All().FirstOrDefault(t => t.Type == model.RoomType);
-            modelRes.PricePerNight = type.Price;
-            return View(modelRes);
-        }
-
-        [Authorize(Roles = "User,Admin")]
-        [HttpGet]
+        [Route("all")]
         public ActionResult All()
         {
-            //TODO
             var userId = User.Identity.GetUserId();
             var allReservations = this.service.GetAllUserReservations(this.reservations, userId);
             return View(allReservations);
         }
 
-        [Authorize(Roles = "User,Admin")]
         [HttpGet]
+        [Route("edit/{id:int}")]
         public ActionResult Edit(int id)
         {
             Reservation reservation = this.reservations.GetById(id);
             CheckReservationViewModel model = Mapper.Map<CheckReservationViewModel>(reservation);
+            model.RoomTypes = this.GetSelectListItems();
+
             return View(model);
         }
 
-        [Authorize(Roles = "User,Admin")]
-        [HttpGet]
+        [HttpPost]
+        [Route("edit/{id:int}")]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(CheckReservationViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                Reservation current = this.reservations.GetById(model.Id);
+                this.reservations.Detach(current);
+                Reservation edited = Mapper.Map<Reservation>(model);
+                this.reservations.Update(edited);
+                this.reservations.SaveChanges();
 
-            //TODO
-            return View();
+                return View("All");
+            }
+
+            return View(model);
         }
 
-        [Authorize(Roles = "User,Admin")]
         [HttpGet]
+        [Route("delete/{id:int}")]
         public ActionResult Delete(int id)
         {
             Reservation reservation = this.reservations.GetById(id);
             this.reservations.Delete(reservation);
             this.reservations.SaveChanges();
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("All");
         }
 
         private IEnumerable<SelectListItem> GetSelectListItems()

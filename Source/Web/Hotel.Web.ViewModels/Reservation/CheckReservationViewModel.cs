@@ -11,18 +11,23 @@
 
     public class CheckReservationViewModel : IMapFrom<Reservation>, IHaveCustomMappings
     {
+        public int Id { get; set; }
+
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DateGreaterThan("EndDate")]
         [Display(Name = "Начална дата")]
         public DateTime? StartDate { get; set; }
+
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "Крайна дата")]
         public DateTime? EndDate { get; set; }
+
         [Required]
         [Display(Name = "Вид стая")]
         public string RoomType { get; set; }
+
         public IEnumerable<SelectListItem> RoomTypes { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)

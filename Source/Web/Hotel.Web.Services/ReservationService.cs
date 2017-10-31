@@ -95,6 +95,7 @@
             IEnumerable<UserReservationAllViewModel> allReservetions = reservations
                                                                     .All()
                                                                     .Where(r => r.UserId == userId)
+                                                                    .OrderByDescending(r => r.CreatedOn)
                                                                     .To<UserReservationAllViewModel>()
                                                                     .ToList();
 

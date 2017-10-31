@@ -1,7 +1,6 @@
 ﻿namespace Hotel.Web.Hotel.Web.ViewModels.Reservation
 {
     using Infrastructure.Mapping;
-    using Data.Models;
     using AutoMapper;
     using System;
     using global::Hotel.Web.ViewModels.Reservation;

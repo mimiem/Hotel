@@ -1,10 +1,5 @@
 ﻿@using Hotel.Web.Hotel.Web.ViewModels.Reservation
 @model IEnumerable<UserReservationAllViewModel>
-@{
-    ViewBag.Title = "All";
-}
-
-<h2>All</h2>
 
 <style>
     table, th, td {
@@ -26,7 +21,7 @@
 <div class="row">
     <div class="col-md-7">
         <div class="thumbnail">
-            <h2>Резервирано</h2>
+            <h2>Всички ваши резервации</h2>
             <table id="mytable">
                 <tr>
                     <th>Тип стая</th>
@@ -47,8 +42,8 @@
                         <td>@Html.DisplayFor(m => res.PriceTotal)</td>
                         <td>@(ViewData["FullName"])</td>
                         <td>
-                            @Html.ActionLink("Промени", "Edit", "Reservation")
-                            @Html.ActionLink("Изтрий", "Delete", "Reservation")
+                            @Html.ActionLink("Промени", "Edit", new { id = res.Id })
+                            @Html.ActionLink("Изтрий", "Delete", new { id = res.Id })
                         </td>
                     </tr>
                 }
