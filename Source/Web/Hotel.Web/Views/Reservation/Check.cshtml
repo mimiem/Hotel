@@ -11,7 +11,7 @@
                     <h3>Направи резервация</h3>
                     <hr />
                     <br />
-                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true)
 
                     <div class="form-group">
                         @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label", @for = "date" })
@@ -50,5 +50,7 @@
     </div>
 </div>
 
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
